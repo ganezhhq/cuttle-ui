@@ -4,14 +4,16 @@
 
 This folder splits the Cuttle UI implementation plan into phases. Each phase has its own file with goals, scope, tasks, and exit criteria. Finish a phase's exit criteria before starting the next.
 
-| Phase | File | Release | Theme | Components | Frameworks added |
-|---|---|---|---|---|---|
-| 0 | [phase-0-foundation.md](phase-0-foundation.md) | v0.0 | Foundation | — | — |
-| 1 | [phase-1-basics.md](phase-1-basics.md) | v0.1 | Basics | 15 | React |
-| 2 | [phase-2-everyday-ui.md](phase-2-everyday-ui.md) | v0.2 | Everyday UI | 18 | Vue |
-| 3 | [phase-3-complex-inputs.md](phase-3-complex-inputs.md) | v0.3 | Complex inputs | 13 | Angular, Web Components |
-| 4 | [phase-4-navigation-layout.md](phase-4-navigation-layout.md) | v0.4 | Navigation & layout | 15 | Svelte |
-| 5 | [phase-5-heavy-components.md](phase-5-heavy-components.md) | v1.0 | Heavy components + stable release | 10 | — |
+**Current status and next steps are in [STATUS.md](STATUS.md).**
+
+| Phase | File | Status | Release | Theme | Components | Frameworks added |
+|---|---|---|---|---|---|---|
+| 0 | [phase-0-foundation.md](phase-0-foundation.md) | In progress | v0.0 | Foundation | — | — |
+| 1 | [phase-1-basics.md](phase-1-basics.md) | Not started | v0.1 | Basics | 15 | React |
+| 2 | [phase-2-everyday-ui.md](phase-2-everyday-ui.md) | Not started | v0.2 | Everyday UI | 18 | Vue |
+| 3 | [phase-3-complex-inputs.md](phase-3-complex-inputs.md) | Not started | v0.3 | Complex inputs | 13 | Angular, Web Components |
+| 4 | [phase-4-navigation-layout.md](phase-4-navigation-layout.md) | Not started | v0.4 | Navigation & layout | 15 | Svelte |
+| 5 | [phase-5-heavy-components.md](phase-5-heavy-components.md) | Not started | v1.0 | Heavy components + stable release | 10 | — |
 
 ## Ground rules for every phase
 
