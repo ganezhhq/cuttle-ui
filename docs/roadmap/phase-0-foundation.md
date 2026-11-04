@@ -98,7 +98,7 @@ Framework-free TypeScript building blocks every component uses:
 - [x] GitHub Actions: install, lint, typecheck, test, build (Turborepo cache)
 - [ ] Playwright set up for visual snapshots (Playwright runs and its tests pass, but snapshot baselines do not exist yet)
 - [x] axe-core test helper
-- [ ] Changesets release workflow (npm publish on merge to `main`): written, currently fails
+- [ ] Changesets release workflow (npm publish on merge to `main`): written, paused (manual runs only) until the npm scope is chosen
 - [ ] Bundle size reporting on PRs: written, has never run
 
 ---

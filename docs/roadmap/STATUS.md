@@ -48,7 +48,7 @@ Set your Git name and email on the new machine before committing. This repositor
 ## Working agreements
 
 - Commit directly to `main`. Do not create feature branches.
-- Pushing to `main` starts the CI and Release workflows.
+- Pushing to `main` starts the CI workflow. The Release workflow is paused and only runs manually for now.
 - TypeScript stays on 5.9, because `typescript-eslint` does not support TypeScript 7 yet.
 - React packages require React 19 or newer.
 
@@ -62,7 +62,7 @@ From [CI run 41842420616](https://github.com/ganezhhq/cuttle-ui/actions/runs/418
 | Unit tests (`pnpm test`) | Passed |
 | Build, including the docs site and Next.js SSR check | Passed |
 | End-to-end tests (`test:e2e`) | Passed |
-| Release workflow | **Failed**, nothing was published |
+| Release workflow | **Failed** on that run, nothing was published. Now paused, see next steps |
 
 Not checked yet:
 
@@ -74,7 +74,7 @@ Not checked yet:
 ## Next steps, in order
 
 1. **Choose the npm scope (decision needed).** See the blocker below.
-2. **Stop the Release workflow failing on every push.** It tries to publish whenever no changesets are pending, and currently fails with a 404. Rename the packages and add the `NPM_TOKEN` repository secret, or disable the workflow until then. Once a token is added, any push to `main` with no pending changesets can publish version `0.0.0`, so set real versions first.
+2. **Turn automatic publishing back on.** The Release workflow is paused and only runs manually, because it tried to publish on every push and failed with a 404. Rename the packages, set real versions and add the `NPM_TOKEN` repository secret, then restore the `push` trigger in `.github/workflows/release.yml`. Set real versions first, because with a token and no pending changesets, any run can publish version `0.0.0`. This applies to manual runs too. Then update the Release note in `CLAUDE.md` and `CONTRIBUTING.md` if needed.
 3. **Prove the release pipeline** by publishing a test package to npm.
 4. **Deploy the docs site**, for example to Vercel.
 5. **Open the playground and docs site** and check them by eye in light and dark mode.
