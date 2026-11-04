@@ -4,6 +4,8 @@ Simple, catchy, accessible UI components for every framework.
 
 > Status: Phase 0 (foundation) is in progress. No public components yet, and nothing is published to npm. See [project status](docs/roadmap/STATUS.md) and the [roadmap](docs/roadmap/README.md).
 
+Read the [documentation](https://ganezhhq.github.io/cuttle-ui/).
+
 ## Packages
 
 | Package | Purpose |

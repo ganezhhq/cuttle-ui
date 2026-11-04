@@ -108,5 +108,5 @@ Framework-free TypeScript building blocks every component uses:
 - [x] `pnpm build` and `pnpm test` pass on CI, and so does the separate end-to-end step
 - [x] Tokens render correctly in light and dark mode in the playground (token values checked by end-to-end tests, both modes checked in a browser by Claude, not yet by a person)
 - [x] All core utilities have tests
-- [ ] Docs site deploys (e.g. Vercel) with Installation + Theming pages
+- [x] Docs site deploys ([GitHub Pages](https://ganezhhq.github.io/cuttle-ui/)) with Installation + Theming pages
 - [ ] Release pipeline can publish a test package to npm
