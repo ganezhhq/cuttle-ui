@@ -1,0 +1,32 @@
+name: Update snapshots
+
+# Screenshots differ between operating systems, so baselines are created here, on the
+# same runner image CI compares them on. Download the artifact, then commit its files
+# to apps/playground/tests/.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm --filter @cuttle-ui/playground exec playwright install --with-deps chromium
+      - run: pnpm --filter @cuttle-ui/playground exec playwright test --update-snapshots
+        env:
+          VISUAL_SNAPSHOTS: '1'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: snapshots
+          path: apps/playground/tests/*-snapshots/
+          if-no-files-found: error
