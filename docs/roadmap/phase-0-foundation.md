@@ -18,7 +18,7 @@
 - [x] Conventional Commits + commitlint (checked in CI)
 - [x] MIT `LICENSE`, `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`
 - [x] Issue templates: bug, feature, new component proposal
-- [ ] GitHub Discussions + public roadmap (GitHub Projects): Discussions are on, the roadmap board does not exist yet
+- [x] GitHub Discussions + [public roadmap](https://github.com/orgs/ganezhhq/projects/1) (GitHub Projects)
 
 ### Folder layout
 

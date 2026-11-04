@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after commit `f3fcaac`, which deployed the docs site to GitHub Pages.
+Last updated: 2026-11-04, after creating the [public roadmap board](https://github.com/orgs/ganezhhq/projects/1).
 
 **Start here when continuing on a new machine.** Phase 0 is mostly built, but it is not finished. Do not start Phase 1 until the [Phase 0 exit criteria](phase-0-foundation.md#exit-criteria) are met.
 
@@ -72,11 +72,10 @@ Not checked yet:
 
 ## Next steps, in order
 
-1. **Create the `@cuttle-ui` organisation on npm (owner action).** See [npm scope](#npm-scope).
+1. **Create the `@cuttle-ui` organisation on npm (owner action).** On 2026-11-04 the registry reported that this scope does not exist. See [npm scope](#npm-scope).
 2. **Turn automatic publishing back on.** The Release workflow is paused and only runs manually, because it tried to publish on every push and failed with a 404. Set real versions and add the `NPM_TOKEN` repository secret, then restore the `push` trigger in `.github/workflows/release.yml`. Set real versions first, because with a token and no pending changesets, any run can publish version `0.0.0`. This applies to manual runs too. Then update the Release note in `CLAUDE.md` and `CONTRIBUTING.md` if needed.
 3. **Prove the release pipeline** by publishing a test package to npm.
 4. **Open the playground and docs site** and check them by eye. Automated checks are done, so this only needs a person's look.
-5. **Create the roadmap board.** This needs the `project` scope on the GitHub CLI token (`gh auth refresh -s project`).
 
 ## npm scope
 
