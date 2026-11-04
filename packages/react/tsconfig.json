@@ -1,1 +1,1 @@
-{ "extends": "@cuttle-ui/tsconfig/react.json", "include": ["src", "vitest.config.ts"] }
+{ "extends": "@cuttle-ui/tsconfig/react.json", "include": ["src", "vitest.config.ts", "tsup.config.ts"] }

@@ -1,0 +1,83 @@
+/*
+ * Dialog. The panel avoids a resting transform, because a transform would change
+ * what position: fixed means for a dialog nested inside it.
+ */
+[data-cuttle='dialog-overlay'] {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgb(0 0 0 / 0.5);
+}
+
+[data-cuttle='dialog-overlay'][data-state='open'] {
+  animation: cuttle-dialog-fade-in var(--cuttle-duration) var(--cuttle-ease);
+}
+
+[data-cuttle='dialog-overlay'][data-state='closed'] {
+  animation: cuttle-dialog-fade-out var(--cuttle-duration-fast) var(--cuttle-ease) forwards;
+}
+
+[data-cuttle='dialog-content'] {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  gap: var(--cuttle-space-3);
+  inline-size: min(480px, calc(100vw - var(--cuttle-space-6)));
+  block-size: fit-content;
+  max-block-size: calc(100dvh - var(--cuttle-space-6));
+  margin: auto;
+  padding: var(--cuttle-space-5);
+  overflow: auto;
+  border: 1px solid var(--cuttle-border);
+  border-radius: var(--cuttle-radius-lg);
+  background: var(--cuttle-surface-tint);
+  color: var(--cuttle-text);
+  box-shadow: var(--cuttle-shadow-lg);
+  outline: none;
+}
+
+[data-cuttle='dialog-content'][data-state='open'] {
+  animation: cuttle-dialog-spring-in var(--cuttle-duration-slow) var(--cuttle-ease-spring);
+}
+
+[data-cuttle='dialog-content'][data-state='closed'] {
+  animation: cuttle-dialog-spring-out var(--cuttle-duration-fast) var(--cuttle-ease) forwards;
+}
+
+[data-cuttle='dialog-title'] {
+  font-size: var(--cuttle-text-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+[data-cuttle='dialog-description'] {
+  color: var(--cuttle-text-muted);
+  font-size: var(--cuttle-text-sm);
+}
+
+@keyframes cuttle-dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes cuttle-dialog-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes cuttle-dialog-spring-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+}
+
+@keyframes cuttle-dialog-spring-out {
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}

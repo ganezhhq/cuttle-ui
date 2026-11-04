@@ -109,3 +109,16 @@ h2 {
   align-items: center;
   gap: var(--cuttle-space-3);
 }
+
+.demo-field {
+  display: grid;
+  gap: var(--cuttle-space-1);
+  font-size: var(--cuttle-text-sm);
+}
+
+.demo-field input {
+  padding: var(--cuttle-space-2);
+  border: 1px solid var(--cuttle-border-strong);
+  border-radius: var(--cuttle-radius-sm);
+  background: var(--cuttle-bg);
+}

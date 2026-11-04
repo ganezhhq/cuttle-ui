@@ -10,7 +10,8 @@
     "./tokens.css": "./tokens.css",
     "./reset.css": "./reset.css",
     "./focus.css": "./focus.css",
-    "./button.css": "./button.css"
+    "./button.css": "./button.css",
+    "./dialog.css": "./dialog.css"
   },
   "publishConfig": { "access": "public" }
 }

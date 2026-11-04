@@ -12,13 +12,13 @@
     ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
   },
   "scripts": {
-    "build": "tsup src/index.tsx --format esm --dts --clean --external react",
+    "build": "tsup",
     "typecheck": "tsc",
     "lint": "eslint .",
     "test": "vitest run"
   },
   "dependencies": { "@cuttle-ui/core": "workspace:*" },
-  "peerDependencies": { "react": ">=19" },
+  "peerDependencies": { "react": ">=19", "react-dom": ">=19" },
   "devDependencies": {
     "@cuttle-ui/eslint-config": "workspace:*",
     "@cuttle-ui/tsconfig": "workspace:*",

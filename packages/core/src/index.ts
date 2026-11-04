@@ -1,5 +1,6 @@
 export * from './create-id';
 export * from './create-machine';
+export * from './dialog';
 export * from './dismissable-layer';
 export * from './focus-trap';
 export * from './merge-props';
