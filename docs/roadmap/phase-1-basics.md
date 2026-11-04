@@ -78,7 +78,7 @@ Differences from the checklist and table:
 ## 6. Release
 
 - [ ] Publish `@cuttle-ui/core`, `@cuttle-ui/styles`, `@cuttle-ui/icons`, `@cuttle-ui/react`, `@cuttle-ui/cli` at `0.1.0`
-- [ ] Launch post / README showcase with screenshots (light + dark)
+- [x] Launch post / README showcase with screenshots (light + dark): README showcase done, no launch post
 
 ---
 

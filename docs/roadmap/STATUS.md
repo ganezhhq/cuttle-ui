@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after adding the React guide and the theme playground.
+Last updated: 2026-11-04, after adding the README showcase.
 
 **Start here when continuing on a new machine.** Phase 1 is in progress. The owner chose to start it before the last [Phase 0 exit criterion](phase-0-foundation.md#exit-criteria) was met, so the release pipeline is still unproven and nothing is published.
 
@@ -77,7 +77,7 @@ Not checked yet:
 Phase 1:
 
 1. **Test the components with screen readers (owner action).** Use NVDA and VoiceOver. None of the 15 is fully done until this happens. See [Phase 1](phase-1-basics.md#component-status).
-2. **Publish `0.1.0`, with a launch post or README showcase.** This needs the npm steps below first.
+2. **Publish `0.1.0`.** This needs the npm steps below first.
 
 Finish Phase 0:
 
