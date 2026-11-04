@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after the rename to the `@cuttle-ui` scope.
+Last updated: 2026-11-04, after commit `4b6a0b8`, which turned on screenshot comparison in CI.
 
 **Start here when continuing on a new machine.** Phase 0 is mostly built, but it is not finished. Do not start Phase 1 until the [Phase 0 exit criteria](phase-0-foundation.md#exit-criteria) are met.
 
@@ -54,22 +54,21 @@ Set your Git name and email on the new machine before committing. This repositor
 
 ## Current state
 
-From [CI run 41842420616](https://github.com/ganezhhq/cuttle-ui/actions/runs/41842420616) and [Release run 41842420667](https://github.com/ganezhhq/cuttle-ui/actions/runs/41842420667), both on commit `5e9afeb`:
+From [CI run 41844876155](https://github.com/ganezhhq/cuttle-ui/actions/runs/41844876155) on commit `4b6a0b8`:
 
 | Check | Result |
 |---|---|
-| Install, lint, typecheck | Passed |
+| Install, commit messages, lint, typecheck | Passed |
 | Unit tests (`pnpm test`) | Passed |
 | Build, including the docs site and Next.js SSR check | Passed |
-| End-to-end tests (`test:e2e`) | Passed |
-| Release workflow | **Failed** on that run, nothing was published. Now paused, see next steps |
+| End-to-end tests (`test:e2e`), including screenshot comparison | Passed |
+| Release workflow | Paused, so it did not run. Its last run failed on `9bd1fc2`, and nothing was published |
 
 Not checked yet:
 
-- The playground and docs site have not been opened and looked at by a person. End-to-end tests cover token values and axe-core on the playground only.
+- The playground and docs site were opened in a browser by Claude, not yet by a person. The playground was checked in light and dark mode, and the theme buttons work. On the docs site, the Introduction, Installation and Theming pages were checked in light mode and the Tokens page in dark mode. Neither site logged console errors.
 - The docs site is built but not deployed.
 - Bundle size reporting only runs on pull requests, so it has never run.
-- Visual snapshots have no baselines, so screenshot comparison is off.
 
 ## Next steps, in order
 
@@ -77,8 +76,8 @@ Not checked yet:
 2. **Turn automatic publishing back on.** The Release workflow is paused and only runs manually, because it tried to publish on every push and failed with a 404. Set real versions and add the `NPM_TOKEN` repository secret, then restore the `push` trigger in `.github/workflows/release.yml`. Set real versions first, because with a token and no pending changesets, any run can publish version `0.0.0`. This applies to manual runs too. Then update the Release note in `CLAUDE.md` and `CONTRIBUTING.md` if needed.
 3. **Prove the release pipeline** by publishing a test package to npm.
 4. **Deploy the docs site**, for example to Vercel.
-5. **Open the playground and docs site** and check them by eye in light and dark mode.
-6. **Finish the smaller items:** enforce commitlint with a commit hook or CI step, create Linux snapshot baselines, and turn on GitHub Discussions and the roadmap board.
+5. **Open the playground and docs site** and check them by eye. Automated checks are done, so this only needs a person's look.
+6. **Create the roadmap board.** This needs the `project` scope on the GitHub CLI token (`gh auth refresh -s project`).
 
 ## npm scope
 

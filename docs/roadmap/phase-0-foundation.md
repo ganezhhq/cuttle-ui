@@ -15,10 +15,10 @@
 - [x] Shared `tsconfig` (strict) in `tooling/tsconfig`
 - [x] Shared ESLint + Prettier config in `tooling/eslint-config` (Prettier config is at the repo root)
 - [x] Changesets for versioning
-- [ ] Conventional Commits + commitlint (config exists, nothing enforces it yet)
+- [x] Conventional Commits + commitlint (checked in CI)
 - [x] MIT `LICENSE`, `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`
 - [x] Issue templates: bug, feature, new component proposal
-- [ ] GitHub Discussions + public roadmap (GitHub Projects)
+- [ ] GitHub Discussions + public roadmap (GitHub Projects): Discussions are on, the roadmap board does not exist yet
 
 ### Folder layout
 
@@ -96,7 +96,7 @@ Framework-free TypeScript building blocks every component uses:
 ## 8. CI/CD
 
 - [x] GitHub Actions: install, lint, typecheck, test, build (Turborepo cache)
-- [ ] Playwright set up for visual snapshots (Playwright runs and its tests pass, but snapshot baselines do not exist yet)
+- [x] Playwright set up for visual snapshots (Linux baseline committed, compared in CI)
 - [x] axe-core test helper
 - [ ] Changesets release workflow (npm publish on merge to `main`): written, paused (manual runs only) until the npm scope is chosen
 - [ ] Bundle size reporting on PRs: written, has never run
@@ -106,7 +106,7 @@ Framework-free TypeScript building blocks every component uses:
 ## Exit criteria
 
 - [x] `pnpm build` and `pnpm test` pass on CI, and so does the separate end-to-end step
-- [x] Tokens render correctly in light and dark mode in the playground (token values checked by end-to-end tests, not yet checked by eye)
+- [x] Tokens render correctly in light and dark mode in the playground (token values checked by end-to-end tests, both modes checked in a browser by Claude, not yet by a person)
 - [x] All core utilities have tests
 - [ ] Docs site deploys (e.g. Vercel) with Installation + Theming pages
 - [ ] Release pipeline can publish a test package to npm
