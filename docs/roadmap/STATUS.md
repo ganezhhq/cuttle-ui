@@ -1,8 +1,8 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after creating the [public roadmap board](https://github.com/orgs/ganezhhq/projects/1).
+Last updated: 2026-11-04, after commit `853291d`, which finished the first pass of Button and Dialog.
 
-**Start here when continuing on a new machine.** Phase 0 is mostly built, but it is not finished. Do not start Phase 1 until the [Phase 0 exit criteria](phase-0-foundation.md#exit-criteria) are met.
+**Start here when continuing on a new machine.** Phase 1 is in progress. The owner chose to start it before the last [Phase 0 exit criterion](phase-0-foundation.md#exit-criteria) was met, so the release pipeline is still unproven and nothing is published.
 
 ## Set up a new machine
 
@@ -54,7 +54,7 @@ Set your Git name and email on the new machine before committing. This repositor
 
 ## Current state
 
-From [CI run 41845566777](https://github.com/ganezhhq/cuttle-ui/actions/runs/41845566777) and [Docs run 41845567360](https://github.com/ganezhhq/cuttle-ui/actions/runs/41845567360) on commit `f3fcaac`:
+From [CI run 41849141358](https://github.com/ganezhhq/cuttle-ui/actions/runs/41849141358) and [Docs run 41849141424](https://github.com/ganezhhq/cuttle-ui/actions/runs/41849141424) on commit `853291d`:
 
 | Check | Result |
 |---|---|
@@ -71,6 +71,13 @@ Not checked yet:
 - Bundle size reporting only runs on pull requests, so it has never run.
 
 ## Next steps, in order
+
+Phase 1:
+
+1. **Test Button and Dialog with screen readers (owner action).** Use NVDA and VoiceOver. This is the only open item from the "done" checklist for both, and the roadmap holds back the other 13 components until both are done. See [Phase 1](phase-1-basics.md#reference-implementation-status).
+2. **Build the other 13 components**, following Button and Dialog.
+
+Finish Phase 0:
 
 1. **Create the `@cuttle-ui` organisation on npm (owner action).** On 2026-11-04 the registry reported that this scope does not exist. See [npm scope](#npm-scope).
 2. **Turn automatic publishing back on.** The Release workflow is paused and only runs manually, because it tried to publish on every push and failed with a 404. Set real versions and add the `NPM_TOKEN` repository secret, then restore the `push` trigger in `.github/workflows/release.yml`. Set real versions first, because with a token and no pending changesets, any run can publish version `0.0.0`. This applies to manual runs too. Then update the Release note in `CLAUDE.md` and `CONTRIBUTING.md` if needed.

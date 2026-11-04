@@ -9,7 +9,7 @@ This folder splits the Cuttle UI implementation plan into phases. Each phase has
 | Phase | File | Status | Release | Theme | Components | Frameworks added |
 |---|---|---|---|---|---|---|
 | 0 | [phase-0-foundation.md](phase-0-foundation.md) | In progress | v0.0 | Foundation | — | — |
-| 1 | [phase-1-basics.md](phase-1-basics.md) | Not started | v0.1 | Basics | 15 | React |
+| 1 | [phase-1-basics.md](phase-1-basics.md) | In progress | v0.1 | Basics | 15 | React |
 | 2 | [phase-2-everyday-ui.md](phase-2-everyday-ui.md) | Not started | v0.2 | Everyday UI | 18 | Vue |
 | 3 | [phase-3-complex-inputs.md](phase-3-complex-inputs.md) | Not started | v0.3 | Complex inputs | 13 | Angular, Web Components |
 | 4 | [phase-4-navigation-layout.md](phase-4-navigation-layout.md) | Not started | v0.4 | Navigation & layout | 15 | Svelte |

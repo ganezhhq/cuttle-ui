@@ -13,6 +13,18 @@
 
 Don't start the rest until both are fully "done" per the checklist.
 
+### Reference implementation status
+
+Everything on the "done" checklist is met except the items below. Button has no core machine, as the component table shows.
+
+| Item | Button | Dialog |
+|---|---|---|
+| Screen-reader tested (NVDA + VoiceOver) | **Not yet, needs a person** | **Not yet, needs a person** |
+| Automated checks (axe, keyboard, light, dark, RTL, reduced motion, SSR build, snapshots) | Passing | Passing |
+| Bundle size, gzipped | CSS 1.0 KB | CSS 0.6 KB. The React package with both is 2.4 KB and the core package is 3.5 KB, both before tree-shaking |
+
+SSR is checked by building `apps/ssr-check`. Hydration has not been checked in a browser. Nuxt, Angular SSR and SvelteKit apply once those adapters exist. Both docs pages show CLI commands, but `cuttle add` does not exist yet.
+
 ## 2. Components
 
 | # | Component | Core logic | Notes |
@@ -35,10 +47,10 @@ Don't start the rest until both are fully "done" per the checklist.
 
 ## 3. Signature details to implement
 
-- [ ] Ink accent on solid Button and focus rings
-- [ ] Shimmer focus on Input, Textarea, Select trigger, Button
-- [ ] Spring open/close on Dialog, Popover, Tooltip, Select
-- [ ] Tinted surfaces on Card, Popover, Dialog
+- [x] Ink accent on solid Button and focus rings
+- [ ] Shimmer focus on Input, Textarea, Select trigger, Button (done on Button)
+- [ ] Spring open/close on Dialog, Popover, Tooltip, Select (done on Dialog)
+- [ ] Tinted surfaces on Card, Popover, Dialog (done on Dialog)
 
 ## 4. CLI
 
