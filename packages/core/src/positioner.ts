@@ -1,6 +1,8 @@
 import { autoUpdate, computePosition, flip, offset, shift } from '@floating-ui/dom';
 import type { Placement, ReferenceElement } from '@floating-ui/dom';
 
+export type { Placement };
+
 export interface PositionerOptions {
   placement?: Placement;
   offset?: number;

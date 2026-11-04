@@ -1,0 +1,10 @@
+/*
+ * What every component needs, so it looks right without reset.css. Each component
+ * sets its own margin after this, with the same specificity.
+ */
+[data-cuttle],
+[data-cuttle]::before,
+[data-cuttle]::after {
+  box-sizing: border-box;
+  margin: 0;
+}

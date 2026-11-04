@@ -61,10 +61,9 @@ describe('cuttle init', () => {
 });
 
 describe('other commands', () => {
-  it('shows help, and rejects unknown or unavailable commands', async () => {
+  it('shows help, and rejects unknown commands and options', async () => {
     expect(await cli()).toBe(0);
     expect(output.join()).toContain('Usage: cuttle');
-    expect(await cli('add')).toBe(1);
     expect(await cli('nope')).toBe(1);
     expect(await cli('init', '--bad-flag')).toBe(1);
   });

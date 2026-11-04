@@ -9,6 +9,7 @@
     ".": "./index.css",
     "./tokens.css": "./tokens.css",
     "./reset.css": "./reset.css",
+    "./base.css": "./base.css",
     "./focus.css": "./focus.css",
     "./button.css": "./button.css",
     "./dialog.css": "./dialog.css",

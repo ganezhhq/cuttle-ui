@@ -4,17 +4,26 @@
   "description": "Command line tool for Cuttle UI",
   "license": "MIT",
   "type": "module",
-  "files": ["dist"],
-  "bin": { "cuttle": "./dist/index.js" },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "cuttle": "./dist/index.js"
+  },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --clean",
+    "build": "tsup src/index.ts src/build-registry.ts --format esm --clean && node dist/build-registry.js",
     "typecheck": "tsc",
     "lint": "eslint .",
     "test": "vitest run"
   },
-  "dependencies": { "@cuttle-ui/styles": "workspace:*" },
+  "dependencies": {
+    "@cuttle-ui/styles": "workspace:*",
+    "node-diff3": "^3.2.1"
+  },
   "devDependencies": {
+    "@cuttle-ui/core": "workspace:*",
     "@cuttle-ui/eslint-config": "workspace:*",
+    "@cuttle-ui/react": "workspace:*",
     "@cuttle-ui/tsconfig": "workspace:*",
     "@types/node": "^22.0.0",
     "eslint": "^10.14.0",
@@ -22,5 +31,7 @@
     "typescript": "~5.9.3",
     "vitest": "^5.1.0"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }
