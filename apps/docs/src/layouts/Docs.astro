@@ -12,7 +12,8 @@ const links = [
   ['/theming', 'Theming'],
   ['/tokens', 'Tokens'],
 ];
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = Astro.url.pathname.slice(base.length).replace(/\/$/, '') || '/';
 ---
 
 <!doctype html>
@@ -30,7 +31,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
           {
             links.map(([href, label]) => (
               <li>
-                <a class="cuttle-focus" href={href} aria-current={path === href ? 'page' : undefined}>
+                <a class="cuttle-focus" href={`${base}${href}`} aria-current={path === href ? 'page' : undefined}>
                   {label}
                 </a>
               </li>
