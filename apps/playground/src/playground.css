@@ -122,3 +122,9 @@ h2 {
   border-radius: var(--cuttle-radius-sm);
   background: var(--cuttle-bg);
 }
+
+.demo-form {
+  display: grid;
+  gap: var(--cuttle-space-4);
+  max-width: 420px;
+}

@@ -1,0 +1,102 @@
+---
+import { PopoverDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "A floating panel for extra content or controls, which leaves the page usable.",
+  "anatomy": "import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from '@cuttle-ui/react';\n\n<Popover>\n  <PopoverTrigger>Share</PopoverTrigger>\n  <PopoverContent aria-label=\"Share\">\n    <PopoverClose>Done</PopoverClose>\n  </PopoverContent>\n</Popover>",
+  "apiNote": "Each part also accepts the native props of its element, and forwards ref.",
+  "api": [
+    {
+      "part": "Popover",
+      "props": [
+        [
+          "open",
+          "boolean",
+          "",
+          "The open state, when you control it"
+        ],
+        [
+          "defaultOpen",
+          "boolean",
+          "false",
+          "The initial open state, when the popover controls itself"
+        ],
+        [
+          "onOpenChange",
+          "(open: boolean) => void",
+          "",
+          "Called when the state should change"
+        ]
+      ]
+    },
+    {
+      "part": "PopoverTrigger, PopoverClose",
+      "props": [
+        [
+          "asChild",
+          "boolean",
+          "false",
+          "Gives the behavior to the only child, such as a Button"
+        ]
+      ]
+    },
+    {
+      "part": "PopoverContent",
+      "props": [
+        [
+          "placement",
+          "Placement",
+          "'bottom'",
+          "Where to place it. It flips when there is no room"
+        ],
+        [
+          "offset",
+          "number",
+          "8",
+          "The gap from the trigger, in pixels"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"popover-trigger\", \"popover-content\" or \"popover-close\""
+    ],
+    [
+      "data-state",
+      "\"open\" or \"closed\""
+    ],
+    [
+      "data-placement",
+      "The final side, on the content"
+    ]
+  ],
+  "a11y": [
+    "Give PopoverContent an aria-label or aria-labelledby, because it has the dialog role.",
+    "It is not modal, so the rest of the page stays usable. Use Dialog when the user must respond first.",
+    "Focus moves into the panel on opening."
+  ],
+  "keyboard": [
+    [
+      "Enter or Space",
+      "Toggles the popover from the trigger"
+    ],
+    [
+      "Tab",
+      "Moves through the panel. Leaving it closes the panel and returns to the trigger"
+    ],
+    [
+      "Esc",
+      "Closes the panel and returns focus to the trigger"
+    ]
+  ],
+  "slug": "popover",
+  "title": "Popover"
+};
+---
+
+<ComponentDoc {...doc}>
+  <PopoverDemo client:load />
+</ComponentDoc>

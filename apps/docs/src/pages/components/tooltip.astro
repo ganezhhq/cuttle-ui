@@ -1,0 +1,97 @@
+---
+import { TooltipDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "A short description that appears on hover or focus.",
+  "anatomy": "import { Tooltip, TooltipContent, TooltipTrigger } from '@cuttle-ui/react';\n\n<Tooltip>\n  <TooltipTrigger>Save</TooltipTrigger>\n  <TooltipContent>Saves your work</TooltipContent>\n</Tooltip>",
+  "apiNote": "Each part also accepts the native props of its element, and forwards ref.",
+  "api": [
+    {
+      "part": "Tooltip",
+      "props": [
+        [
+          "openDelay",
+          "number",
+          "300",
+          "Milliseconds to wait before showing"
+        ],
+        [
+          "closeDelay",
+          "number",
+          "100",
+          "Milliseconds to wait before hiding"
+        ]
+      ]
+    },
+    {
+      "part": "TooltipTrigger",
+      "props": [
+        [
+          "asChild",
+          "boolean",
+          "false",
+          "Gives the behavior to the only child, such as a Button"
+        ]
+      ]
+    },
+    {
+      "part": "TooltipContent",
+      "props": [
+        [
+          "placement",
+          "Placement",
+          "'top'",
+          "Where to place it. It flips when there is no room"
+        ],
+        [
+          "offset",
+          "number",
+          "6",
+          "The gap from the trigger, in pixels"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"tooltip-trigger\" or \"tooltip-content\""
+    ],
+    [
+      "data-state",
+      "\"open\" or \"closed\""
+    ],
+    [
+      "data-placement",
+      "The final side, on the content"
+    ]
+  ],
+  "a11y": [
+    "The trigger must be focusable, so keyboard users can reach the tooltip.",
+    "It describes the trigger with aria-describedby while open. A button with only an icon still needs its own aria-label.",
+    "It stays open while the pointer is over it, and Esc hides it.",
+    "Touch screens do not show it on press, so do not put essential information in a tooltip."
+  ],
+  "keyboard": [
+    [
+      "Tab",
+      "Shows the tooltip when focus reaches the trigger"
+    ],
+    [
+      "Esc",
+      "Hides the tooltip"
+    ]
+  ],
+  "pattern": {
+    "name": "WAI-ARIA tooltip pattern",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/"
+  },
+  "slug": "tooltip",
+  "title": "Tooltip"
+};
+---
+
+<ComponentDoc {...doc}>
+  <TooltipDemo client:load />
+</ComponentDoc>

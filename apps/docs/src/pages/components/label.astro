@@ -1,0 +1,42 @@
+---
+import { LabelDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "Names a form control, and focuses it when pressed.",
+  "anatomy": "import { Input, Label } from '@cuttle-ui/react';\n\n<Label htmlFor=\"name\">Name</Label>\n<Input id=\"name\" />",
+  "apiNote": "Accepts every native label prop, and forwards ref.",
+  "api": [
+    {
+      "props": [
+        [
+          "htmlFor",
+          "string",
+          "",
+          "The ID of the control. Inside a Field, this is set for you"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"label\""
+    ],
+    [
+      "data-required",
+      "Present in a required Field, and adds an asterisk"
+    ]
+  ],
+  "a11y": [
+    "Pressing the label focuses its control, which also makes small controls easier to reach.",
+    "The asterisk on a required Field is decorative. The control itself sets the required attribute."
+  ],
+  "slug": "label",
+  "title": "Label"
+};
+---
+
+<ComponentDoc {...doc}>
+  <LabelDemo client:load />
+</ComponentDoc>

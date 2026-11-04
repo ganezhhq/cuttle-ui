@@ -1,0 +1,143 @@
+/* Popover, Tooltip and Select. The positioner sets the position and `data-placement`. */
+[data-cuttle='popover-content'],
+[data-cuttle='tooltip-content'],
+[data-cuttle='select-list'] {
+  position: fixed;
+  inset-block-start: 0;
+  left: 0;
+  z-index: 60;
+  transform-origin: top center;
+}
+
+[data-placement^='top'] {
+  transform-origin: bottom center;
+}
+
+[data-cuttle='popover-content'] {
+  inline-size: max-content;
+  max-inline-size: min(320px, calc(100vw - var(--cuttle-space-4)));
+  padding: var(--cuttle-space-4);
+  border: 1px solid var(--cuttle-border);
+  border-radius: var(--cuttle-radius);
+  background: var(--cuttle-surface-tint);
+  color: var(--cuttle-text);
+  font-size: var(--cuttle-text-sm);
+  box-shadow: var(--cuttle-shadow);
+  outline: none;
+}
+
+[data-cuttle='tooltip-content'] {
+  max-inline-size: 240px;
+  padding-block: var(--cuttle-space-1);
+  padding-inline: var(--cuttle-space-2);
+  border-radius: var(--cuttle-radius-sm);
+  background: var(--cuttle-text);
+  color: var(--cuttle-bg);
+  font-size: var(--cuttle-text-xs);
+  box-shadow: var(--cuttle-shadow-sm);
+}
+
+[data-cuttle='select-trigger'] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cuttle-space-2);
+  inline-size: 100%;
+  min-block-size: 36px;
+  padding-block: var(--cuttle-space-1);
+  padding-inline: var(--cuttle-space-3);
+  border: 1px solid var(--cuttle-border-strong);
+  border-radius: var(--cuttle-radius);
+  background: var(--cuttle-bg);
+  color: var(--cuttle-text);
+  font-family: inherit;
+  font-size: var(--cuttle-text-sm);
+  text-align: start;
+  cursor: pointer;
+}
+
+[data-cuttle='select-trigger']:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+[data-cuttle='select-value'][data-placeholder] {
+  color: var(--cuttle-text-muted);
+}
+
+[data-cuttle='select-icon'] {
+  flex: none;
+  inline-size: 16px;
+  block-size: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--cuttle-duration-fast) var(--cuttle-ease);
+}
+
+[data-cuttle='select-trigger'][data-state='open'] [data-cuttle='select-icon'] {
+  transform: rotate(180deg);
+}
+
+[data-cuttle='select-list'] {
+  max-block-size: 280px;
+  margin: 0;
+  padding: var(--cuttle-space-1);
+  overflow: auto;
+  list-style: none;
+  border: 1px solid var(--cuttle-border);
+  border-radius: var(--cuttle-radius);
+  background: var(--cuttle-bg);
+  color: var(--cuttle-text);
+  font-size: var(--cuttle-text-sm);
+  box-shadow: var(--cuttle-shadow);
+}
+
+[data-cuttle='select-option'] {
+  padding-block: var(--cuttle-space-1);
+  padding-inline: var(--cuttle-space-2);
+  border-radius: var(--cuttle-radius-sm);
+  cursor: pointer;
+}
+
+[data-cuttle='select-option'][data-highlighted] {
+  background: var(--cuttle-accent-tint);
+}
+
+[data-cuttle='select-option'][aria-selected='true'] {
+  font-weight: 600;
+}
+
+[data-cuttle='select-option'][aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Spring on open, and a short fade on close. No fill on open keeps the rest position exact. */
+[data-cuttle='popover-content'][data-state='open'],
+[data-cuttle='tooltip-content'][data-state='open'],
+[data-cuttle='select-list'][data-state='open'] {
+  animation: cuttle-overlay-in var(--cuttle-duration) var(--cuttle-ease-spring);
+}
+
+[data-cuttle='popover-content'][data-state='closed'],
+[data-cuttle='tooltip-content'][data-state='closed'],
+[data-cuttle='select-list'][data-state='closed'] {
+  animation: cuttle-overlay-out var(--cuttle-duration-fast) var(--cuttle-ease) forwards;
+}
+
+@keyframes cuttle-overlay-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+
+@keyframes cuttle-overlay-out {
+  to {
+    opacity: 0;
+    scale: 0.98;
+  }
+}

@@ -395,6 +395,9 @@ importers:
       '@cuttle-ui/core':
         specifier: workspace:*
         version: link:../core
+      '@floating-ui/dom':
+        specifier: ^1.8.0
+        version: 1.8.0
     devDependencies:
       '@cuttle-ui/eslint-config':
         specifier: workspace:*

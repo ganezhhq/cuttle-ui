@@ -1,0 +1,247 @@
+/*
+ * Form controls: Input, Textarea, Label, Field, Checkbox, Radio and Switch.
+ * All spacing and positions use logical properties, so they work right to left.
+ */
+[data-cuttle='input'],
+[data-cuttle='textarea'] {
+  inline-size: 100%;
+  min-block-size: 36px;
+  padding-block: var(--cuttle-space-1);
+  padding-inline: var(--cuttle-space-3);
+  border: 1px solid var(--cuttle-border-strong);
+  border-radius: var(--cuttle-radius);
+  background: var(--cuttle-bg);
+  color: var(--cuttle-text);
+  font-family: inherit;
+  font-size: var(--cuttle-text-sm);
+  line-height: 1.5;
+  transition: border-color var(--cuttle-duration-fast) var(--cuttle-ease);
+}
+
+[data-cuttle='input'][data-size='sm'] {
+  min-block-size: 28px;
+  padding-inline: var(--cuttle-space-2);
+  border-radius: var(--cuttle-radius-sm);
+  font-size: var(--cuttle-text-xs);
+}
+
+[data-cuttle='input'][data-size='lg'] {
+  min-block-size: 44px;
+  padding-inline: var(--cuttle-space-4);
+  font-size: var(--cuttle-text-md);
+}
+
+[data-cuttle='textarea'] {
+  display: block;
+  min-block-size: 80px;
+  padding-block: var(--cuttle-space-2);
+  resize: vertical;
+}
+
+[data-cuttle='textarea'][data-auto-resize] {
+  overflow: hidden;
+  resize: none;
+}
+
+[data-cuttle='input']::placeholder,
+[data-cuttle='textarea']::placeholder {
+  color: var(--cuttle-text-muted);
+  opacity: 1;
+}
+
+[data-cuttle='input']:disabled,
+[data-cuttle='textarea']:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+[data-cuttle='input'][data-invalid],
+[data-cuttle='textarea'][data-invalid],
+[data-cuttle='select-trigger'][data-invalid] {
+  border-color: var(--cuttle-danger);
+}
+
+[data-cuttle='label'] {
+  display: inline-block;
+  font-size: var(--cuttle-text-sm);
+  font-weight: 500;
+}
+
+[data-cuttle='label'][data-required]::after {
+  content: ' *';
+  color: var(--cuttle-danger);
+}
+
+[data-cuttle='field'] {
+  display: grid;
+  gap: var(--cuttle-space-1);
+}
+
+[data-cuttle='field'][data-disabled] [data-cuttle='label'] {
+  opacity: 0.5;
+}
+
+[data-cuttle='field-description'] {
+  color: var(--cuttle-text-muted);
+  font-size: var(--cuttle-text-xs);
+}
+
+[data-cuttle='field-error'] {
+  color: var(--cuttle-danger);
+  font-size: var(--cuttle-text-xs);
+}
+
+[data-cuttle='checkbox'],
+[data-cuttle='radio'] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cuttle-space-2);
+  font-size: var(--cuttle-text-sm);
+  cursor: pointer;
+}
+
+[data-cuttle='checkbox'][data-disabled],
+[data-cuttle='radio'][data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+[data-cuttle='checkbox-box'],
+[data-cuttle='radio-box'] {
+  position: relative;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  inline-size: 18px;
+  block-size: 18px;
+  border: 1px solid var(--cuttle-border-strong);
+  background: var(--cuttle-bg);
+  transition:
+    background-color var(--cuttle-duration-fast) var(--cuttle-ease),
+    border-color var(--cuttle-duration-fast) var(--cuttle-ease);
+}
+
+[data-cuttle='checkbox-box'] {
+  border-radius: var(--cuttle-radius-sm);
+}
+
+[data-cuttle='radio-box'] {
+  border-radius: var(--cuttle-radius-pill);
+}
+
+/* The native input stays on top, invisible, so it keeps all native behavior. */
+[data-cuttle='checkbox-box'] input,
+[data-cuttle='radio-box'] input {
+  position: absolute;
+  inset: -1px;
+  inline-size: calc(100% + 2px);
+  block-size: calc(100% + 2px);
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+[data-cuttle='checkbox-box']:has(input:focus-visible),
+[data-cuttle='radio-box']:has(input:focus-visible) {
+  outline: 2px solid var(--cuttle-accent);
+  outline-offset: 2px;
+  animation: cuttle-shimmer-focus var(--cuttle-duration-slow) var(--cuttle-ease);
+}
+
+[data-cuttle='checkbox'][data-state='checked'] [data-cuttle='checkbox-box'],
+[data-cuttle='checkbox'][data-state='indeterminate'] [data-cuttle='checkbox-box'],
+[data-cuttle='radio'][data-state='checked'] [data-cuttle='radio-box'] {
+  border-color: var(--cuttle-accent);
+  background: var(--cuttle-accent);
+}
+
+[data-cuttle='checkbox'][data-invalid] [data-cuttle='checkbox-box'] {
+  border-color: var(--cuttle-danger);
+}
+
+[data-cuttle='checkbox-icon'] {
+  inline-size: 14px;
+  block-size: 14px;
+  fill: none;
+  stroke: var(--cuttle-accent-contrast);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  opacity: 0;
+}
+
+[data-cuttle='checkbox'][data-state='checked'] [data-cuttle='checkbox-icon'],
+[data-cuttle='checkbox'][data-state='indeterminate'] [data-cuttle='checkbox-icon'] {
+  opacity: 1;
+}
+
+[data-cuttle='radio-dot'] {
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: var(--cuttle-radius-pill);
+  background: var(--cuttle-accent-contrast);
+  pointer-events: none;
+  opacity: 0;
+}
+
+[data-cuttle='radio'][data-state='checked'] [data-cuttle='radio-dot'] {
+  opacity: 1;
+}
+
+[data-cuttle='radio-group'] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--cuttle-space-2);
+}
+
+[data-cuttle='radio-group'][data-orientation='horizontal'] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--cuttle-space-4);
+}
+
+[data-cuttle='switch'] {
+  display: inline-flex;
+  align-items: center;
+  inline-size: 38px;
+  block-size: 22px;
+  padding: 0;
+  border: 1px solid var(--cuttle-border-strong);
+  border-radius: var(--cuttle-radius-pill);
+  background: var(--cuttle-surface);
+  cursor: pointer;
+  transition: background-color var(--cuttle-duration-fast) var(--cuttle-ease);
+}
+
+[data-cuttle='switch'][data-state='on'] {
+  border-color: var(--cuttle-accent);
+  background: var(--cuttle-accent);
+}
+
+[data-cuttle='switch']:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+[data-cuttle='switch-thumb'] {
+  inline-size: 16px;
+  block-size: 16px;
+  margin-inline-start: 2px;
+  border-radius: var(--cuttle-radius-pill);
+  background: var(--cuttle-text-muted);
+  transition: margin-inline-start var(--cuttle-duration) var(--cuttle-ease-spring);
+}
+
+[data-cuttle='switch'][data-state='on'] [data-cuttle='switch-thumb'] {
+  margin-inline-start: 18px;
+  background: var(--cuttle-accent-contrast);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-cuttle='checkbox-box']:has(input:focus-visible),
+  [data-cuttle='radio-box']:has(input:focus-visible) {
+    animation: none;
+  }
+}

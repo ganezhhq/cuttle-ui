@@ -1,0 +1,83 @@
+---
+import { Code, Heading, Stack, Text } from '@cuttle-ui/react';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "Headings, body text and inline code, sized from the type scale.",
+  "anatomy": "import { Code, Heading, Text } from '@cuttle-ui/react';\n\n<Heading level={2}>Title</Heading>\n<Text muted>Body text with <Code>code</Code>.</Text>",
+  "apiNote": "Each part accepts the native props of its element, and forwards ref.",
+  "api": [
+    {
+      "part": "Heading",
+      "props": [
+        [
+          "level",
+          "1 to 6",
+          "2",
+          "The level in the page outline"
+        ],
+        [
+          "size",
+          "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "from level",
+          "The visual size, when it should differ from the level"
+        ]
+      ]
+    },
+    {
+      "part": "Text",
+      "props": [
+        [
+          "size",
+          "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+          "'md'",
+          "The visual size"
+        ],
+        [
+          "muted",
+          "boolean",
+          "false",
+          "Uses the muted text color"
+        ],
+        [
+          "asChild",
+          "boolean",
+          "false",
+          "Styles the only child instead of rendering a paragraph"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"heading\", \"text\" or \"code\""
+    ],
+    [
+      "data-size",
+      "The size"
+    ],
+    [
+      "data-muted",
+      "Present on muted Text"
+    ]
+  ],
+  "a11y": [
+    "Choose level for the page outline and size for the look, so the two can differ.",
+    "Do not skip heading levels."
+  ],
+  "slug": "typography",
+  "title": "Typography"
+};
+---
+
+<ComponentDoc {...doc}>
+  <Stack gap={2}>
+    <Heading level={3} size="2xl">Heading 2xl</Heading>
+    <Heading level={3} size="xl">Heading xl</Heading>
+    <Heading level={3} size="lg">Heading lg</Heading>
+    <Text size="lg">Text lg</Text>
+    <Text>Body text with <Code>inline code</Code>.</Text>
+    <Text size="sm" muted>Muted small text</Text>
+  </Stack>
+</ComponentDoc>

@@ -1,4 +1,12 @@
-import { Children, cloneElement, isValidElement, useState, useSyncExternalStore } from 'react';
+import {
+  Children,
+  cloneElement,
+  createContext,
+  isValidElement,
+  useEffect,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import type { ComponentPropsWithRef, ElementType, ReactElement, ReactNode, Ref } from 'react';
 import { mergeProps } from '@cuttle-ui/core';
 import type { Machine, MachineEvent, Snapshot } from '@cuttle-ui/core';
@@ -11,7 +19,11 @@ export function useMachine<C, E extends MachineEvent, S extends string>(
   factory: () => Machine<C, E, S>,
 ): [Snapshot<C, S>, Machine<C, E, S>['send'], Machine<C, E, S>] {
   const [machine] = useState(factory);
-  const snapshot = useSyncExternalStore(machine.subscribe, machine.getSnapshot, machine.getSnapshot);
+  const snapshot = useSyncExternalStore(
+    machine.subscribe,
+    machine.getSnapshot,
+    machine.getSnapshot,
+  );
   return [snapshot, machine.send, machine];
 }
 
@@ -52,4 +64,27 @@ export type PolymorphicProps<E extends ElementType, P = object> = P & { as?: E }
 /** Props shared by parts that can hand their behavior to a child through `asChild`. */
 export interface AsChildProps {
   asChild?: boolean;
+}
+
+/** The element that overlays render into. A dialog provides itself, to keep them in its trap. */
+export const LayerContainerContext = createContext<HTMLElement | null>(null);
+
+/** Keeps content mounted until its closing animation has finished. */
+export function usePresence(open: boolean, node: HTMLElement | null): boolean {
+  const [present, setPresent] = useState(open);
+  if (open && !present) setPresent(true);
+
+  useEffect(() => {
+    if (open || !present) return;
+    let cancelled = false;
+    const animations = node?.getAnimations?.() ?? [];
+    void Promise.allSettled(animations.map((animation) => animation.finished)).then(() => {
+      if (!cancelled) setPresent(false);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [open, present, node]);
+
+  return present;
 }

@@ -1,0 +1,94 @@
+---
+import { CheckboxDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "Turns an option on or off, with an indeterminate state for partly selected groups.",
+  "anatomy": "import { Checkbox } from '@cuttle-ui/react';\n\n<Checkbox defaultChecked onCheckedChange={save}>\n  Accept terms\n</Checkbox>",
+  "apiNote": "Built on a native checkbox. Accepts every native input prop, and forwards ref to the input. Inside a Field, it picks up its ID and ARIA connections.",
+  "api": [
+    {
+      "props": [
+        [
+          "checked",
+          "boolean | 'indeterminate'",
+          "",
+          "The state, when you control it"
+        ],
+        [
+          "defaultChecked",
+          "boolean | 'indeterminate'",
+          "false",
+          "The initial state, when the checkbox controls itself"
+        ],
+        [
+          "onCheckedChange",
+          "(checked) => void",
+          "",
+          "Called when the state changes. Pressing an indeterminate checkbox checks it"
+        ],
+        [
+          "invalid",
+          "boolean",
+          "false",
+          "Marks it as invalid"
+        ],
+        [
+          "disabled",
+          "boolean",
+          "false",
+          "Turns it off"
+        ],
+        [
+          "children",
+          "ReactNode",
+          "",
+          "The label, shown next to the box"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"checkbox\", \"checkbox-box\" or \"checkbox-icon\""
+    ],
+    [
+      "data-state",
+      "\"checked\", \"unchecked\" or \"indeterminate\""
+    ],
+    [
+      "data-disabled",
+      "Present while disabled"
+    ],
+    [
+      "data-invalid",
+      "Present while invalid"
+    ]
+  ],
+  "a11y": [
+    "The native input provides the role, the state and form support.",
+    "Without children, give it a name with aria-label or a Field."
+  ],
+  "keyboard": [
+    [
+      "Tab",
+      "Moves focus to the checkbox"
+    ],
+    [
+      "Space",
+      "Toggles it"
+    ]
+  ],
+  "pattern": {
+    "name": "WAI-ARIA checkbox pattern",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/"
+  },
+  "slug": "checkbox",
+  "title": "Checkbox"
+};
+---
+
+<ComponentDoc {...doc}>
+  <CheckboxDemo client:load />
+</ComponentDoc>

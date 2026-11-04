@@ -1,0 +1,95 @@
+---
+import { Button, Stack, Text } from '@cuttle-ui/react';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "Lays out its children in a row or column with even spacing.",
+  "anatomy": "import { Stack } from '@cuttle-ui/react';\n\n<Stack direction=\"row\" gap={3} align=\"center\" wrap>\n  <div>One</div>\n  <div>Two</div>\n</Stack>",
+  "apiNote": "Accepts native div props, and forwards ref.",
+  "api": [
+    {
+      "props": [
+        [
+          "direction",
+          "'row' | 'column'",
+          "'column'",
+          "Layout direction"
+        ],
+        [
+          "gap",
+          "0 to 7",
+          "3",
+          "A step on the spacing scale"
+        ],
+        [
+          "align",
+          "'start' | 'center' | 'end' | 'stretch' | 'baseline'",
+          "",
+          "Cross-axis alignment"
+        ],
+        [
+          "justify",
+          "'start' | 'center' | 'end' | 'between'",
+          "",
+          "Main-axis alignment"
+        ],
+        [
+          "wrap",
+          "boolean",
+          "false",
+          "Lets items wrap onto new lines"
+        ],
+        [
+          "asChild",
+          "boolean",
+          "false",
+          "Styles the only child instead of rendering a div"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"stack\""
+    ],
+    [
+      "data-direction",
+      "The direction"
+    ],
+    [
+      "data-align",
+      "The alignment"
+    ],
+    [
+      "data-justify",
+      "The justification"
+    ],
+    [
+      "data-wrap",
+      "Present with wrap"
+    ]
+  ],
+  "a11y": [
+    "A Stack has no role, and only changes layout.",
+    "A row follows the page direction, so it reverses in right-to-left layouts.",
+    "Keep the source order the same as the visual order, so keyboard order makes sense."
+  ],
+  "slug": "stack",
+  "title": "Stack"
+};
+---
+
+<ComponentDoc {...doc}>
+  <Stack gap={4}>
+    <Stack direction="row" gap={2} wrap>
+      <Button variant="outline">One</Button>
+      <Button variant="outline">Two</Button>
+      <Button variant="outline">Three</Button>
+    </Stack>
+    <Stack direction="row" justify="between" align="center">
+      <Text>Space between</Text>
+      <Button size="sm">Action</Button>
+    </Stack>
+  </Stack>
+</ComponentDoc>

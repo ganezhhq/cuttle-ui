@@ -1,0 +1,71 @@
+---
+import { FieldDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "Connects a label, description and error to a form control through ARIA.",
+  "anatomy": "import { Field, FieldDescription, FieldError, Input, Label } from '@cuttle-ui/react';\n\n<Field invalid={hasError} required>\n  <Label>Email</Label>\n  <Input />\n  <FieldDescription>Work address</FieldDescription>\n  <FieldError>Enter a valid email address.</FieldError>\n</Field>",
+  "apiNote": "Works with Input, Textarea, Checkbox, RadioGroup, Switch and Select. Each part accepts the native props of its element, and forwards ref.",
+  "api": [
+    {
+      "part": "Field",
+      "props": [
+        [
+          "invalid",
+          "boolean",
+          "false",
+          "Marks the control as invalid and shows FieldError"
+        ],
+        [
+          "disabled",
+          "boolean",
+          "false",
+          "Turns the control off"
+        ],
+        [
+          "required",
+          "boolean",
+          "false",
+          "Marks the control as required"
+        ]
+      ]
+    },
+    {
+      "part": "FieldDescription, FieldError",
+      "props": [
+        [
+          "children",
+          "ReactNode",
+          "",
+          "The text. FieldError only appears while the Field is invalid"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"field\", \"field-description\" or \"field-error\""
+    ],
+    [
+      "data-invalid",
+      "Present on the Field while invalid"
+    ],
+    [
+      "data-disabled",
+      "Present on the Field while disabled"
+    ]
+  ],
+  "a11y": [
+    "The description and error are connected with aria-describedby, so screen readers announce them with the control.",
+    "FieldError is only in the page while the Field is invalid.",
+    "A control sets aria-invalid when its Field is invalid."
+  ],
+  "slug": "field",
+  "title": "Field"
+};
+---
+
+<ComponentDoc {...doc}>
+  <FieldDemo client:load />
+</ComponentDoc>

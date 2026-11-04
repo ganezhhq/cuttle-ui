@@ -1,0 +1,90 @@
+---
+import { SwitchDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "Turns a setting on or off straight away.",
+  "anatomy": "import { Field, Label, Switch } from '@cuttle-ui/react';\n\n<Field>\n  <Label>Email alerts</Label>\n  <Switch onCheckedChange={save} />\n</Field>",
+  "apiNote": "Accepts every native button prop, and forwards ref. Inside a Field, it picks up its ID and ARIA connections.",
+  "api": [
+    {
+      "props": [
+        [
+          "checked",
+          "boolean",
+          "",
+          "The state, when you control it"
+        ],
+        [
+          "defaultChecked",
+          "boolean",
+          "false",
+          "The initial state, when the switch controls itself"
+        ],
+        [
+          "onCheckedChange",
+          "(checked: boolean) => void",
+          "",
+          "Called when the state changes"
+        ],
+        [
+          "name",
+          "string",
+          "",
+          "Adds a hidden input, so the switch is sent with a form"
+        ],
+        [
+          "value",
+          "string",
+          "'on'",
+          "The value sent with a form while on"
+        ],
+        [
+          "disabled",
+          "boolean",
+          "false",
+          "Turns it off"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"switch\" or \"switch-thumb\""
+    ],
+    [
+      "data-state",
+      "\"on\" or \"off\""
+    ]
+  ],
+  "a11y": [
+    "Use a switch for settings that apply at once, and a checkbox for choices sent with a form.",
+    "Give it a name with a Label, a Field or aria-label."
+  ],
+  "keyboard": [
+    [
+      "Tab",
+      "Moves focus to the switch"
+    ],
+    [
+      "Space",
+      "Toggles it"
+    ],
+    [
+      "Enter",
+      "Toggles it"
+    ]
+  ],
+  "pattern": {
+    "name": "WAI-ARIA switch pattern",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/"
+  },
+  "slug": "switch",
+  "title": "Switch"
+};
+---
+
+<ComponentDoc {...doc}>
+  <SwitchDemo client:load />
+</ComponentDoc>

@@ -11,7 +11,10 @@
     "./reset.css": "./reset.css",
     "./focus.css": "./focus.css",
     "./button.css": "./button.css",
-    "./dialog.css": "./dialog.css"
+    "./dialog.css": "./dialog.css",
+    "./forms.css": "./forms.css",
+    "./layout.css": "./layout.css",
+    "./overlays.css": "./overlays.css"
   },
   "publishConfig": { "access": "public" }
 }

@@ -1,0 +1,62 @@
+---
+import { Button, Card, CardContent, CardFooter, CardHeader, Heading, Stack, Text } from '@cuttle-ui/react';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "Groups related content on a surface, with a header, content and footer.",
+  "anatomy": "import { Card, CardContent, CardFooter, CardHeader } from '@cuttle-ui/react';\n\n<Card>\n  <CardHeader>Title</CardHeader>\n  <CardContent>Content</CardContent>\n  <CardFooter>Actions</CardFooter>\n</Card>",
+  "apiNote": "Each part accepts native div props, and forwards ref.",
+  "api": [
+    {
+      "part": "Card",
+      "props": [
+        [
+          "tinted",
+          "boolean",
+          "true",
+          "Uses the tinted surface. Turn it off for a plain background"
+        ],
+        [
+          "asChild",
+          "boolean",
+          "false",
+          "Styles the only child, such as an article, instead of rendering a div"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"card\", \"card-header\", \"card-content\" or \"card-footer\""
+    ],
+    [
+      "data-tinted",
+      "Present on a tinted Card"
+    ]
+  ],
+  "a11y": [
+    "A Card has no role of its own. Use asChild with an article or section when it needs meaning.",
+    "Add a heading when a Card stands alone, so screen reader users can find it."
+  ],
+  "slug": "card",
+  "title": "Card"
+};
+---
+
+<ComponentDoc {...doc}>
+  <Stack gap={3}>
+    <Card>
+      <CardHeader>
+        <Heading level={3}>Tinted card</Heading>
+        <Text size="sm" muted>With a header, content and footer.</Text>
+      </CardHeader>
+      <CardContent><Text>The main content goes here.</Text></CardContent>
+      <CardFooter>
+        <Button size="sm">Save</Button>
+        <Button size="sm" variant="ghost">Cancel</Button>
+      </CardFooter>
+    </Card>
+    <Card tinted={false}><Text>A plain card.</Text></Card>
+  </Stack>
+</ComponentDoc>

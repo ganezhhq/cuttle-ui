@@ -1,0 +1,64 @@
+---
+import { InputDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "A single-line text input with sizes, an invalid state and a disabled state.",
+  "anatomy": "import { Input } from '@cuttle-ui/react';\n\n<Input aria-label=\"Name\" placeholder=\"Ada Lovelace\" />",
+  "apiNote": "Accepts every native input prop, and forwards ref. Inside a Field, it picks up its ID and ARIA connections.",
+  "api": [
+    {
+      "props": [
+        [
+          "size",
+          "'sm' | 'md' | 'lg'",
+          "'md'",
+          "Size"
+        ],
+        [
+          "invalid",
+          "boolean",
+          "false",
+          "Marks the value as invalid and sets aria-invalid"
+        ],
+        [
+          "disabled",
+          "boolean",
+          "false",
+          "Turns the input off"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"input\""
+    ],
+    [
+      "data-size",
+      "The size"
+    ],
+    [
+      "data-invalid",
+      "Present while invalid"
+    ]
+  ],
+  "a11y": [
+    "Every input needs a name, from a Label, a Field or aria-label.",
+    "A placeholder is not a label, because it disappears as you type."
+  ],
+  "keyboard": [
+    [
+      "Tab",
+      "Moves focus to the input"
+    ]
+  ],
+  "slug": "input",
+  "title": "Input"
+};
+---
+
+<ComponentDoc {...doc}>
+  <InputDemo client:load />
+</ComponentDoc>

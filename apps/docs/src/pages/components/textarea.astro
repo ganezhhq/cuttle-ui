@@ -1,0 +1,63 @@
+---
+import { TextareaDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "A multi-line text input that can grow with its text.",
+  "anatomy": "import { Textarea } from '@cuttle-ui/react';\n\n<Textarea aria-label=\"Notes\" autoResize />",
+  "apiNote": "Accepts every native textarea prop, and forwards ref. Inside a Field, it picks up its ID and ARIA connections.",
+  "api": [
+    {
+      "props": [
+        [
+          "autoResize",
+          "boolean",
+          "false",
+          "Grows with the text instead of scrolling"
+        ],
+        [
+          "invalid",
+          "boolean",
+          "false",
+          "Marks the value as invalid and sets aria-invalid"
+        ],
+        [
+          "disabled",
+          "boolean",
+          "false",
+          "Turns the textarea off"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"textarea\""
+    ],
+    [
+      "data-auto-resize",
+      "Present with autoResize"
+    ],
+    [
+      "data-invalid",
+      "Present while invalid"
+    ]
+  ],
+  "a11y": [
+    "Every textarea needs a name, from a Label, a Field or aria-label."
+  ],
+  "keyboard": [
+    [
+      "Tab",
+      "Moves focus to the textarea"
+    ]
+  ],
+  "slug": "textarea",
+  "title": "Textarea"
+};
+---
+
+<ComponentDoc {...doc}>
+  <TextareaDemo client:load />
+</ComponentDoc>

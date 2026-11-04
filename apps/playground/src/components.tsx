@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@cuttle-ui/react';
+import { MoreComponents } from './more-components';
 import type { ButtonSize, ButtonVariant } from '@cuttle-ui/react';
 
 const VARIANTS: ButtonVariant[] = ['solid', 'outline', 'soft', 'ghost', 'link', 'danger'];
@@ -104,6 +105,7 @@ export function Components() {
     <>
       <ButtonSection />
       <DialogSection />
+      <MoreComponents />
     </>
   );
 }

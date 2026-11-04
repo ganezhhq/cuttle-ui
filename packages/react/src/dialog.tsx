@@ -9,7 +9,7 @@ import {
   getPortalContainer,
   lockScroll,
 } from '@cuttle-ui/core';
-import { mergeRefs, Slot, useMachine } from './primitives';
+import { LayerContainerContext, mergeRefs, Slot, useMachine, usePresence } from './primitives';
 import type { AsChildProps } from './primitives';
 
 interface DialogContextValue {
@@ -24,8 +24,6 @@ interface DialogContextValue {
 }
 
 const DialogContext = createContext<DialogContextValue | null>(null);
-/** The content of the surrounding dialog, so a nested dialog stays inside its focus trap. */
-const ParentContentContext = createContext<HTMLElement | null>(null);
 
 function useDialogContext(part: string): DialogContextValue {
   const context = useContext(DialogContext);
@@ -99,26 +97,6 @@ export function DialogTrigger({ asChild = false, ref, onClick, ...props }: Dialo
   return <button type="button" {...shared} ref={mergedRef} />;
 }
 
-/** Keeps the content mounted until its closing animation has finished. */
-function usePresence(open: boolean, node: HTMLElement | null): boolean {
-  const [present, setPresent] = useState(open);
-  if (open && !present) setPresent(true);
-
-  useEffect(() => {
-    if (open || !present) return;
-    let cancelled = false;
-    const animations = node?.getAnimations?.() ?? [];
-    void Promise.allSettled(animations.map((animation) => animation.finished)).then(() => {
-      if (!cancelled) setPresent(false);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [open, present, node]);
-
-  return present;
-}
-
 export interface DialogContentProps extends ComponentPropsWithRef<'div'> {
   /** Closes the dialog when Esc is pressed. Defaults to true. */
   closeOnEscape?: boolean;
@@ -138,7 +116,7 @@ export function DialogContent({
   ...props
 }: DialogContentProps) {
   const { open, setOpen, rootId, hasTitle, hasDescription } = useDialogContext('DialogContent');
-  const parentContent = useContext(ParentContentContext);
+  const parentContent = useContext(LayerContainerContext);
   const [node, setNode] = useState<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(false);
   const present = usePresence(open, node);
@@ -176,7 +154,7 @@ export function DialogContent({
   return createPortal(
     <>
       <div data-cuttle="dialog-overlay" data-state={state} aria-hidden="true" />
-      <ParentContentContext.Provider value={node}>
+      <LayerContainerContext.Provider value={node}>
         <div
           {...props}
           ref={mergeRefs<HTMLDivElement>(ref, setNode)}
@@ -193,7 +171,7 @@ export function DialogContent({
         >
           {children}
         </div>
-      </ParentContentContext.Provider>
+      </LayerContainerContext.Provider>
     </>,
     container,
   );

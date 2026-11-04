@@ -1,0 +1,122 @@
+---
+import { RadioGroupDemo } from '../../components/Demos';
+import ComponentDoc from '../../layouts/ComponentDoc.astro';
+
+const doc = {
+  "summary": "A set of options where one can be chosen.",
+  "anatomy": "import { Radio, RadioGroup } from '@cuttle-ui/react';\n\n<RadioGroup aria-label=\"Plan\" defaultValue=\"free\" onValueChange={save}>\n  <Radio value=\"free\">Free</Radio>\n  <Radio value=\"team\">Team</Radio>\n</RadioGroup>",
+  "apiNote": "Built on native radios, which provide the roving focus and arrow keys. RadioGroup accepts native div props, and Radio accepts native input props.",
+  "api": [
+    {
+      "part": "RadioGroup",
+      "props": [
+        [
+          "value",
+          "string",
+          "",
+          "The selected value, when you control it"
+        ],
+        [
+          "defaultValue",
+          "string",
+          "",
+          "The initial value, when the group controls itself"
+        ],
+        [
+          "onValueChange",
+          "(value: string) => void",
+          "",
+          "Called when the selection changes"
+        ],
+        [
+          "name",
+          "string",
+          "generated",
+          "The form field name"
+        ],
+        [
+          "orientation",
+          "'vertical' | 'horizontal'",
+          "'vertical'",
+          "Layout direction"
+        ],
+        [
+          "disabled",
+          "boolean",
+          "false",
+          "Turns off every option"
+        ]
+      ]
+    },
+    {
+      "part": "Radio",
+      "props": [
+        [
+          "value",
+          "string",
+          "",
+          "Required. The value of this option"
+        ],
+        [
+          "disabled",
+          "boolean",
+          "false",
+          "Turns off this option"
+        ],
+        [
+          "children",
+          "ReactNode",
+          "",
+          "The label, shown next to the circle"
+        ]
+      ]
+    }
+  ],
+  "attributes": [
+    [
+      "data-cuttle",
+      "\"radio-group\", \"radio\", \"radio-box\" or \"radio-dot\""
+    ],
+    [
+      "data-orientation",
+      "The layout, on the group"
+    ],
+    [
+      "data-state",
+      "\"checked\" or \"unchecked\", on each Radio"
+    ],
+    [
+      "data-disabled",
+      "Present on a disabled Radio"
+    ]
+  ],
+  "a11y": [
+    "Name the group with aria-label, aria-labelledby or a Field.",
+    "The browser provides the arrow keys, so they behave as they do for any native radio."
+  ],
+  "keyboard": [
+    [
+      "Tab",
+      "Moves focus into the group, to the selected option"
+    ],
+    [
+      "Arrow keys",
+      "Moves to the next or previous option and selects it, skipping disabled ones"
+    ],
+    [
+      "Space",
+      "Selects the focused option"
+    ]
+  ],
+  "pattern": {
+    "name": "WAI-ARIA radio group pattern",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/"
+  },
+  "slug": "radio-group",
+  "title": "Radio Group"
+};
+---
+
+<ComponentDoc {...doc}>
+  <RadioGroupDemo client:load />
+</ComponentDoc>

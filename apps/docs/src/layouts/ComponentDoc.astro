@@ -1,0 +1,158 @@
+---
+import FrameworkTabs from '../components/FrameworkTabs.astro';
+import Docs from './Docs.astro';
+
+export interface ApiPart {
+  /** The part name. Leave it out when a component has one part. */
+  part?: string;
+  /** Name, type, default and description. */
+  props: Array<[string, string, string, string]>;
+}
+
+interface Props {
+  title: string;
+  summary: string;
+  /** The name for `cuttle add`. */
+  slug: string;
+  anatomy: string;
+  /** What else the component accepts, shown above the API table. */
+  apiNote: string;
+  api: ApiPart[];
+  attributes: Array<[string, string]>;
+  /** Leave it out for a component that takes no focus. */
+  keyboard?: Array<[string, string]>;
+  a11y: string[];
+  /** The WAI-ARIA pattern this follows, if there is one. */
+  pattern?: { name: string; url: string };
+}
+
+const { title, summary, slug, anatomy, apiNote, api, attributes, keyboard, a11y, pattern } =
+  Astro.props;
+
+const install = {
+  Package: 'pnpm add @cuttle-ui/react @cuttle-ui/styles',
+  CLI: `npx @cuttle-ui/cli add ${slug}`,
+};
+---
+
+<Docs title={title}>
+  <p>{summary}</p>
+
+  <h2>Demo</h2>
+  <div class="demo"><slot /></div>
+
+  <h2>Install</h2>
+  <FrameworkTabs samples={install} />
+  <p>Packages are not published to npm yet, and the CLI cannot add components yet.</p>
+
+  <h2>Anatomy</h2>
+  <pre><code>{anatomy}</code></pre>
+
+  <h2>API</h2>
+  <p>{apiNote}</p>
+  {
+    api.map(({ part, props }) => (
+      <>
+        {part && <h3>{part}</h3>}
+        <table>
+          <thead>
+            <tr>
+              <th>Prop</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.map(([name, type, fallback, description]) => (
+              <tr>
+                <td>
+                  <code>{name}</code>
+                </td>
+                <td>
+                  <code>{type}</code>
+                </td>
+                <td>
+                  <code>{fallback}</code>
+                </td>
+                <td>{description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    ))
+  }
+
+  <h2>Styling</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        attributes.map(([name, value]) => (
+          <tr>
+            <td>
+              <code>{name}</code>
+            </td>
+            <td>{value}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  {
+    keyboard && (
+      <>
+        <h2>Keyboard</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {keyboard.map(([key, action]) => (
+              <tr>
+                <td>
+                  <kbd>{key}</kbd>
+                </td>
+                <td>{action}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    )
+  }
+
+  <h2>Accessibility</h2>
+  <ul>
+    {
+      pattern && (
+        <li>
+          Follows the <a href={pattern.url}>{pattern.name}</a>.
+        </li>
+      )
+    }
+    {a11y.map((note) => <li>{note}</li>)}
+  </ul>
+</Docs>
+
+<style>
+  .demo {
+    padding: var(--cuttle-space-5);
+    border: 1px solid var(--cuttle-border);
+    border-radius: var(--cuttle-radius);
+  }
+  kbd {
+    font-family: var(--cuttle-font-mono);
+    font-size: var(--cuttle-text-sm);
+  }
+</style>
