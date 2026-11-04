@@ -97,3 +97,15 @@ h2 {
 .action:hover {
   background: var(--cuttle-accent-hover);
 }
+
+.demo-rows {
+  display: grid;
+  gap: var(--cuttle-space-4);
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cuttle-space-3);
+}

@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { iconNames } from '@cuttle-ui/icons';
 import { Icon } from '@cuttle-ui/icons/react';
 import '@cuttle-ui/styles';
+import { Components } from './components';
 import './playground.css';
 
 type Theme = 'system' | 'light' | 'dark';
@@ -23,6 +24,8 @@ const COLORS = [
 const RADII = ['radius-sm', 'radius', 'radius-lg', 'radius-pill'];
 const SHADOWS = ['shadow-sm', 'shadow', 'shadow-lg'];
 
+const showComponents = new URLSearchParams(window.location.search).get('view') === 'components';
+
 function App() {
   const [theme, setTheme] = useState<Theme>('system');
 
@@ -34,7 +37,7 @@ function App() {
   return (
     <main className="page">
       <header className="header">
-        <h1>Cuttle tokens</h1>
+        <h1>{showComponents ? 'Cuttle components' : 'Cuttle tokens'}</h1>
         <div role="group" aria-label="Theme" className="themes">
           {(['system', 'light', 'dark'] as const).map((option) => (
             <button
@@ -50,6 +53,14 @@ function App() {
         </div>
       </header>
 
+      {showComponents ? <Components /> : <Tokens />}
+    </main>
+  );
+}
+
+function Tokens() {
+  return (
+    <>
       <section aria-labelledby="colors">
         <h2 id="colors">Color</h2>
         <ul className="grid">
@@ -98,7 +109,7 @@ function App() {
           Focus me
         </button>
       </section>
-    </main>
+    </>
   );
 }
 

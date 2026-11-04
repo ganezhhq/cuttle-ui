@@ -11,6 +11,7 @@ const links = [
   ['/installation', 'Installation'],
   ['/theming', 'Theming'],
   ['/tokens', 'Tokens'],
+  ['/components/button', 'Button'],
 ];
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const path = Astro.url.pathname.slice(base.length).replace(/\/$/, '') || '/';
@@ -83,6 +84,9 @@ const path = Astro.url.pathname.slice(base.length).replace(/\/$/, '') || '/';
   }
   main > * + * {
     margin-top: var(--cuttle-space-4);
+  }
+  framework-tabs {
+    display: block;
   }
   main a {
     color: var(--cuttle-accent);

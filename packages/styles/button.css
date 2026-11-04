@@ -1,0 +1,138 @@
+/*
+ * Button. Variants, sizes and states come from data-* attributes set by the adapter.
+ * Spacing uses logical layout, so it also works right to left.
+ */
+[data-cuttle='button'] {
+  --_bg: var(--cuttle-accent);
+  --_bg-hover: var(--cuttle-accent-hover);
+  --_fg: var(--cuttle-accent-contrast);
+  --_border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cuttle-space-2);
+  min-block-size: 36px;
+  padding-block: var(--cuttle-space-1);
+  padding-inline: var(--cuttle-space-4);
+  border: 1px solid var(--_border);
+  border-radius: var(--cuttle-radius);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: inherit;
+  font-size: var(--cuttle-text-sm);
+  font-weight: 500;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--cuttle-duration-fast) var(--cuttle-ease),
+    border-color var(--cuttle-duration-fast) var(--cuttle-ease),
+    transform var(--cuttle-duration-fast) var(--cuttle-ease);
+}
+
+[data-cuttle='button']:hover {
+  background: var(--_bg-hover);
+}
+
+[data-cuttle='button']:active {
+  transform: scale(0.98);
+}
+
+[data-cuttle='button'][data-size='sm'] {
+  min-block-size: 28px;
+  padding-inline: var(--cuttle-space-3);
+  border-radius: var(--cuttle-radius-sm);
+  font-size: var(--cuttle-text-xs);
+}
+
+[data-cuttle='button'][data-size='lg'] {
+  min-block-size: 44px;
+  padding-inline: var(--cuttle-space-5);
+  font-size: var(--cuttle-text-md);
+}
+
+[data-cuttle='button'][data-variant='outline'] {
+  --_bg: transparent;
+  --_bg-hover: var(--cuttle-surface);
+  --_fg: var(--cuttle-text);
+  --_border: var(--cuttle-border-strong);
+}
+
+[data-cuttle='button'][data-variant='soft'] {
+  --_bg: var(--cuttle-accent-tint);
+  --_bg-hover: var(--cuttle-accent-tint);
+  --_fg: var(--cuttle-accent);
+}
+
+[data-cuttle='button'][data-variant='soft']:hover {
+  --_border: var(--cuttle-accent);
+}
+
+[data-cuttle='button'][data-variant='ghost'] {
+  --_bg: transparent;
+  --_bg-hover: var(--cuttle-surface);
+  --_fg: var(--cuttle-text);
+}
+
+[data-cuttle='button'][data-variant='link'] {
+  --_bg: transparent;
+  --_bg-hover: transparent;
+  --_fg: var(--cuttle-accent);
+  min-block-size: 0;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+[data-cuttle='button'][data-variant='danger'] {
+  --_bg: var(--cuttle-danger);
+  --_bg-hover: color-mix(in srgb, var(--cuttle-danger) 85%, var(--cuttle-text));
+  --_fg: var(--cuttle-accent-contrast);
+}
+
+[data-cuttle='button'][data-loading] {
+  cursor: progress;
+}
+
+/* A pseudo-element, so the spinner also works on an asChild element. */
+[data-cuttle='button'][data-loading]::before {
+  content: '';
+  flex: none;
+  inline-size: 1em;
+  block-size: 1em;
+  border: 2px solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: var(--cuttle-radius-pill);
+  animation: cuttle-button-spin 700ms linear infinite;
+}
+
+[data-cuttle='button'][data-loading]:active {
+  transform: none;
+}
+
+[data-cuttle='button']:disabled,
+[data-cuttle='button'][data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+[data-cuttle='button']:disabled:hover,
+[data-cuttle='button'][data-disabled]:hover {
+  background: var(--_bg);
+}
+
+@keyframes cuttle-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-cuttle='button'][data-loading]::before {
+    animation: none;
+  }
+}

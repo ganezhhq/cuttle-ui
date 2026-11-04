@@ -1,0 +1,138 @@
+---
+import { Button } from '@cuttle-ui/react';
+import FrameworkTabs from '../../components/FrameworkTabs.astro';
+import Docs from '../../layouts/Docs.astro';
+
+const install = {
+  Package: `pnpm add @cuttle-ui/react @cuttle-ui/styles`,
+  CLI: `npx @cuttle-ui/cli add button`,
+};
+
+const props = [
+  ['variant', `'solid' | 'outline' | 'soft' | 'ghost' | 'link' | 'danger'`, `'solid'`, 'Visual style'],
+  ['size', `'sm' | 'md' | 'lg'`, `'md'`, 'Size'],
+  ['loading', 'boolean', 'false', 'Shows a spinner and ignores presses, while staying focusable'],
+  ['disabled', 'boolean', 'false', 'Turns the button off and removes it from the tab order'],
+  ['asChild', 'boolean', 'false', 'Styles the only child, such as a link, instead of rendering a button'],
+  ['type', `'button' | 'submit' | 'reset'`, `'button'`, 'Native type. It does not submit forms unless you ask it to'],
+];
+
+const attributes = [
+  ['data-cuttle', '"button"'],
+  ['data-variant', 'The variant'],
+  ['data-size', 'The size'],
+  ['data-loading', 'Present while loading'],
+  ['data-disabled', 'Present while disabled'],
+];
+---
+
+<Docs title="Button">
+  <p>Triggers an action. It comes in six variants and three sizes, with a loading state.</p>
+
+  <h2>Demo</h2>
+  <div class="demo">
+    <Button>Solid</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="soft">Soft</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="link">Link</Button>
+    <Button variant="danger">Danger</Button>
+  </div>
+  <div class="demo">
+    <Button size="sm">Small</Button>
+    <Button>Medium</Button>
+    <Button size="lg">Large</Button>
+    <Button loading>Saving</Button>
+    <Button disabled>Disabled</Button>
+  </div>
+
+  <h2>Install</h2>
+  <FrameworkTabs samples={install} />
+  <p>Packages are not published to npm yet, so these commands do not work yet.</p>
+
+  <h2>Anatomy</h2>
+  <pre><code>{`import { Button } from '@cuttle-ui/react';
+
+<Button variant="outline" onClick={save}>Save</Button>
+
+// Render a link that looks like a button
+<Button asChild>
+  <a href="/pricing">Pricing</a>
+</Button>`}</code></pre>
+
+  <h2>API</h2>
+  <p>Button also accepts every native button prop, and forwards <code>ref</code>.</p>
+  <table>
+    <thead>
+      <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      {
+        props.map(([name, type, fallback, description]) => (
+          <tr>
+            <td><code>{name}</code></td>
+            <td><code>{type}</code></td>
+            <td><code>{fallback}</code></td>
+            <td>{description}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <h2>Styling</h2>
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      {
+        attributes.map(([name, value]) => (
+          <tr>
+            <td><code>{name}</code></td>
+            <td>{value}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <h2>Keyboard</h2>
+  <table>
+    <thead>
+      <tr><th>Key</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><kbd>Tab</kbd></td><td>Moves focus to the button</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>Presses the button</td></tr>
+      <tr><td><kbd>Space</kbd></td><td>Presses the button. A link rendered with <code>asChild</code> only responds to <kbd>Enter</kbd></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Accessibility</h2>
+  <ul>
+    <li>Follows the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/button/">WAI-ARIA button pattern</a> by using a native <code>button</code> element.</li>
+    <li>A loading button keeps focus, so keyboard users do not lose their place. It sets <code>aria-busy</code> and <code>aria-disabled</code>.</li>
+    <li>A button with only an icon needs an <code>aria-label</code>.</li>
+    <li>Use <code>asChild</code> with a link when the action navigates to another page.</li>
+  </ul>
+</Docs>
+
+<style>
+  .demo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--cuttle-space-3);
+    padding: var(--cuttle-space-5);
+    border: 1px solid var(--cuttle-border);
+    border-radius: var(--cuttle-radius);
+  }
+  .demo + .demo {
+    margin-top: var(--cuttle-space-3);
+  }
+  kbd {
+    font-family: var(--cuttle-font-mono);
+    font-size: var(--cuttle-text-sm);
+  }
+</style>
