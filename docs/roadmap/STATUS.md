@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after commit `853291d`, which finished the first pass of Button and Dialog.
+Last updated: 2026-11-04, after the first pass of all 15 Phase 1 components.
 
 **Start here when continuing on a new machine.** Phase 1 is in progress. The owner chose to start it before the last [Phase 0 exit criterion](phase-0-foundation.md#exit-criteria) was met, so the release pipeline is still unproven and nothing is published.
 
@@ -54,7 +54,7 @@ Set your Git name and email on the new machine before committing. This repositor
 
 ## Current state
 
-From [CI run 41849141358](https://github.com/ganezhhq/cuttle-ui/actions/runs/41849141358) and [Docs run 41849141424](https://github.com/ganezhhq/cuttle-ui/actions/runs/41849141424) on commit `853291d`:
+From the CI and Docs runs on the latest commit on `main`:
 
 | Check | Result |
 |---|---|
@@ -74,8 +74,10 @@ Not checked yet:
 
 Phase 1:
 
-1. **Test Button and Dialog with screen readers (owner action).** Use NVDA and VoiceOver. This is the only open item from the "done" checklist for both, and the roadmap holds back the other 13 components until both are done. See [Phase 1](phase-1-basics.md#reference-implementation-status).
-2. **Build the other 13 components**, following Button and Dialog.
+1. **Test the components with screen readers (owner action).** Use NVDA and VoiceOver. None of the 15 is fully done until this happens. See [Phase 1](phase-1-basics.md#component-status).
+2. **Check hydration** of the Next.js app in a browser.
+3. **Build `cuttle add` and `cuttle update`**, and the component registry. The docs pages already show the command, and say that it does not work yet.
+4. **Write the "Getting started with React" guide and the theme playground.**
 
 Finish Phase 0:
 

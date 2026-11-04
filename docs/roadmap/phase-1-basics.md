@@ -13,17 +13,24 @@
 
 Don't start the rest until both are fully "done" per the checklist.
 
-### Reference implementation status
+### Component status
 
-Everything on the "done" checklist is met except the items below. Button has no core machine, as the component table shows.
+All 15 components are built. **None is fully "done" yet, because none has been tested with a screen reader.** The owner chose to build the other 13 before that test on Button and Dialog, so any problem it finds may need fixing across all of them.
 
-| Item | Button | Dialog |
-|---|---|---|
-| Screen-reader tested (NVDA + VoiceOver) | **Not yet, needs a person** | **Not yet, needs a person** |
-| Automated checks (axe, keyboard, light, dark, RTL, reduced motion, SSR build, snapshots) | Passing | Passing |
-| Bundle size, gzipped | CSS 1.0 KB | CSS 0.6 KB. The React package with both is 2.4 KB and the core package is 3.5 KB, both before tree-shaking |
+| Item | Status |
+|---|---|
+| Screen-reader tested (NVDA + VoiceOver) | **Not yet, needs a person** |
+| Automated checks (axe, keyboard, light, dark, RTL, reduced motion, snapshots) | Passing |
+| SSR | The Next.js check builds with all 15. Hydration has not been checked in a browser |
+| Bundle size, gzipped, before tree-shaking | React package 7.3 KB, core package 4.4 KB. CSS: Button 1.0 KB, Dialog 0.6 KB, forms 1.4 KB, overlays 1.0 KB, layout and type 0.6 KB |
 
-SSR is checked by building `apps/ssr-check`. Hydration has not been checked in a browser. Nuxt, Angular SSR and SvelteKit apply once those adapters exist. Both docs pages show CLI commands, but `cuttle add` does not exist yet.
+Differences from the checklist and table:
+
+- Label, Card, Stack and Typography have no core logic, and neither does Input, as the table shows. They have no state or keyboard behavior of their own.
+- Field and Textarea use core helpers rather than a state machine, because they have no states to move between.
+- Radio Group uses native radios, which provide the roving focus and arrow keys. This means `rovingFocus` from core is not used yet.
+- Select takes its options as a list, rather than as child components.
+- The `region` axe rule is turned off while an overlay is open, because floating layers sit outside the page landmarks by design.
 
 ## 2. Components
 
@@ -48,9 +55,9 @@ SSR is checked by building `apps/ssr-check`. Hydration has not been checked in a
 ## 3. Signature details to implement
 
 - [x] Ink accent on solid Button and focus rings
-- [ ] Shimmer focus on Input, Textarea, Select trigger, Button (done on Button)
-- [ ] Spring open/close on Dialog, Popover, Tooltip, Select (done on Dialog)
-- [ ] Tinted surfaces on Card, Popover, Dialog (done on Dialog)
+- [x] Shimmer focus on Input, Textarea, Select trigger, Button
+- [x] Spring open/close on Dialog, Popover, Tooltip, Select
+- [x] Tinted surfaces on Card, Popover, Dialog
 
 ## 4. CLI
 
