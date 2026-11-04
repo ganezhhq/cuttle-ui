@@ -8,8 +8,11 @@ const samples = {
 // In your app entry
 import '@cuttle-ui/styles';`,
   CLI: `npx @cuttle-ui/cli init
+npx @cuttle-ui/cli add button dialog
 
-# Detects your framework, writes cuttle.json and copies tokens.css`,
+// In your app entry
+import './components/cuttle/cuttle.css';
+import { Button } from './components/cuttle';`,
 };
 ---
 
@@ -19,5 +22,13 @@ import '@cuttle-ui/styles';`,
     public release.
   </p>
   <FrameworkTabs samples={samples} />
+  <h2>What the CLI does</h2>
+  <p>The CLI copies component source into your project, so you own it and can change it.</p>
+  <ul>
+    <li><code>cuttle init</code> detects your framework, writes <code>cuttle.json</code> and copies <code>tokens.css</code>.</li>
+    <li><code>cuttle add</code> copies components and what they depend on, by default to <code>src/components/cuttle</code>. It adds <code>@cuttle-ui/core</code> to <code>package.json</code>, so run your installer afterwards.</li>
+    <li><code>cuttle update</code> brings them up to date with a 3-way merge, which keeps your changes. A clash leaves conflict markers in the file and exits with an error. Use <code>--dry-run</code> to check first.</li>
+  </ul>
+  <p>Commit the <code>.cuttle</code> folder. It holds the versions you started from, which <code>cuttle update</code> needs for merging.</p>
   <p>Vue, Angular, Svelte and Web Components join in later phases.</p>
 </Docs>

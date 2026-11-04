@@ -21,7 +21,7 @@ All 15 components are built. **None is fully "done" yet, because none has been t
 |---|---|
 | Screen-reader tested (NVDA + VoiceOver) | **Not yet, needs a person** |
 | Automated checks (axe, keyboard, light, dark, RTL, reduced motion, snapshots) | Passing |
-| SSR | The Next.js check builds with all 15. Hydration has not been checked in a browser |
+| SSR | The Next.js check builds with the components. Copied components were also built and run in a new Next.js app, where they hydrated with no console errors |
 | Bundle size, gzipped, before tree-shaking | React package 7.3 KB, core package 4.4 KB. CSS: Button 1.0 KB, Dialog 0.6 KB, forms 1.4 KB, overlays 1.0 KB, layout and type 0.6 KB |
 
 Differences from the checklist and table:
@@ -30,6 +30,8 @@ Differences from the checklist and table:
 - Field and Textarea use core helpers rather than a state machine, because they have no states to move between.
 - Radio Group uses native radios, which provide the roving focus and arrow keys. This means `rovingFocus` from core is not used yet.
 - Select takes its options as a list, rather than as child components.
+- The CLI runs as `npx @cuttle-ui/cli`, because the unscoped `cuttle` package on npm belongs to someone else.
+- The fresh-project check was done by hand, using packed packages in new Vite and Next.js apps. CI does not run it. CI only covers `cuttle add` and `update` through the CLI's own tests.
 - The `region` axe rule is turned off while an overlay is open, because floating layers sit outside the page landmarks by design.
 
 ## 2. Components
@@ -61,9 +63,9 @@ Differences from the checklist and table:
 
 ## 4. CLI
 
-- [ ] `npx cuttle add <component>` — copies React adapter + CSS into the user's project, adds `@cuttle-ui/core` as dependency
-- [ ] Component registry (JSON) describing files and dependencies for each component
-- [ ] `npx cuttle update <component>` — 3-way merge with conflict report (can be basic in this phase)
+- [x] `cuttle add <component>` — copies React adapter + CSS into the user's project, adds `@cuttle-ui/core` as dependency
+- [x] Component registry (JSON) describing files and dependencies for each component
+- [x] `cuttle update <component>` — 3-way merge with conflict report
 
 ## 5. Docs
 
@@ -81,7 +83,7 @@ Differences from the checklist and table:
 ## Exit criteria
 
 - [ ] All 15 components pass the "done" checklist in React
-- [ ] Works in Next.js (app router, SSR) and Vite
-- [ ] `cuttle init` + `cuttle add` work in a fresh project
+- [x] Works in Next.js (app router, SSR) and Vite
+- [x] `cuttle init` + `cuttle add` work in a fresh project
 - [ ] Docs live with all 15 component pages
 - [ ] v0.1.0 published to npm

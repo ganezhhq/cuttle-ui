@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after the first pass of all 15 Phase 1 components.
+Last updated: 2026-11-04, after adding `cuttle add` and `cuttle update`.
 
 **Start here when continuing on a new machine.** Phase 1 is in progress. The owner chose to start it before the last [Phase 0 exit criterion](phase-0-foundation.md#exit-criteria) was met, so the release pipeline is still unproven and nothing is published.
 
@@ -75,9 +75,7 @@ Not checked yet:
 Phase 1:
 
 1. **Test the components with screen readers (owner action).** Use NVDA and VoiceOver. None of the 15 is fully done until this happens. See [Phase 1](phase-1-basics.md#component-status).
-2. **Check hydration** of the Next.js app in a browser.
-3. **Build `cuttle add` and `cuttle update`**, and the component registry. The docs pages already show the command, and say that it does not work yet.
-4. **Write the "Getting started with React" guide and the theme playground.**
+2. **Write the "Getting started with React" guide and the theme playground.** The guide should say to set `font-family: var(--cuttle-font-sans)` on the page, because the components inherit their font.
 
 Finish Phase 0:
 
