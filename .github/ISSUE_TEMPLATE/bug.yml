@@ -1,0 +1,13 @@
+name: Bug report
+description: Something is not working
+labels: [bug]
+body:
+  - type: input
+    attributes: { label: Package and version }
+    validations: { required: true }
+  - type: textarea
+    attributes: { label: Steps to reproduce }
+    validations: { required: true }
+  - type: textarea
+    attributes: { label: Expected and actual behavior }
+    validations: { required: true }

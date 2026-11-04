@@ -1,0 +1,5 @@
+dist
+.astro
+.next
+.turbo
+pnpm-lock.yaml

@@ -1,0 +1,34 @@
+---
+import Docs from '../layouts/Docs.astro';
+
+const override = `:root {
+  --cuttle-accent: #0f766e;
+  --cuttle-radius: 6px;
+}`;
+const manual = `<html data-theme="dark">`;
+const styling = `[data-cuttle='dialog'][data-state='open'] {
+  border-radius: var(--cuttle-radius-lg);
+}`;
+---
+
+<Docs title="Theming">
+  <p>Every visual value is a CSS variable, so you theme Cuttle by overriding tokens.</p>
+  <pre><code>{override}</code></pre>
+
+  <h2>Light and dark</h2>
+  <p>
+    Cuttle follows the system color scheme by default. Set <code>data-theme</code> to
+    <code>light</code> or <code>dark</code> on the root element to choose one yourself.
+  </p>
+  <pre><code>{manual}</code></pre>
+
+  <h2>Styling components</h2>
+  <p>Components expose a <code>data-cuttle</code> name and <code>data-*</code> state attributes.</p>
+  <pre><code>{styling}</code></pre>
+
+  <h2>Motion</h2>
+  <p>
+    When a visitor prefers reduced motion, duration tokens become zero. Animate with these tokens
+    and your styles respect the preference automatically.
+  </p>
+</Docs>

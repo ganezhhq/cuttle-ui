@@ -1,0 +1,116 @@
+---
+/** Code samples per framework. Follows the WAI-ARIA tabs pattern and remembers the choice. */
+interface Props {
+  samples: Record<string, string>;
+}
+
+const { samples } = Astro.props;
+const names = Object.keys(samples);
+const uid = `tabs-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<framework-tabs>
+  <div role="tablist" aria-label="Framework" data-tabs>
+    {
+      names.map((name, index) => (
+        <button
+          class="cuttle-focus"
+          type="button"
+          role="tab"
+          id={`${uid}-tab-${index}`}
+          aria-controls={`${uid}-panel-${index}`}
+          aria-selected={index === 0 ? 'true' : 'false'}
+          tabindex={index === 0 ? 0 : -1}
+          data-framework={name}
+        >
+          {name}
+        </button>
+      ))
+    }
+  </div>
+  {
+    names.map((name, index) => (
+      <div
+        role="tabpanel"
+        id={`${uid}-panel-${index}`}
+        aria-labelledby={`${uid}-tab-${index}`}
+        hidden={index !== 0}
+      >
+        <pre tabindex="0"><code>{samples[name]}</code></pre>
+      </div>
+    ))
+  }
+</framework-tabs>
+
+<script>
+  const KEY = 'cuttle-docs-framework';
+
+  class FrameworkTabs extends HTMLElement {
+    connectedCallback() {
+      const tabs = [...this.querySelectorAll<HTMLElement>('[role="tab"]')];
+      const select = (tab: HTMLElement, focus = false) => {
+        for (const item of tabs) {
+          const active = item === tab;
+          item.setAttribute('aria-selected', String(active));
+          item.tabIndex = active ? 0 : -1;
+          const panel = document.getElementById(item.getAttribute('aria-controls') ?? '');
+          if (panel) panel.hidden = !active;
+        }
+        if (focus) tab.focus();
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+          select(tab);
+          try {
+            localStorage.setItem(KEY, tab.dataset.framework ?? '');
+          } catch {
+            // Storage can be blocked. The tab still switches for this page view.
+          }
+        });
+        tab.addEventListener('keydown', (event) => {
+          const next: Record<string, number> = {
+            ArrowRight: (index + 1) % tabs.length,
+            ArrowLeft: (index - 1 + tabs.length) % tabs.length,
+            Home: 0,
+            End: tabs.length - 1,
+          };
+          const target = tabs[next[event.key] ?? -1];
+          if (target) {
+            event.preventDefault();
+            select(target, true);
+          }
+        });
+      });
+
+      try {
+        const saved = tabs.find((tab) => tab.dataset.framework === localStorage.getItem(KEY));
+        if (saved) select(saved);
+      } catch {
+        // Storage can be blocked. Keep the first tab.
+      }
+    }
+  }
+
+  customElements.define('framework-tabs', FrameworkTabs);
+</script>
+
+<style>
+  [role='tablist'] {
+    display: flex;
+    gap: var(--cuttle-space-2);
+    margin-bottom: var(--cuttle-space-2);
+  }
+  [role='tab'] {
+    padding: var(--cuttle-space-1) var(--cuttle-space-3);
+    border: 1px solid var(--cuttle-border-strong);
+    border-radius: var(--cuttle-radius-pill);
+    background: var(--cuttle-surface);
+    cursor: pointer;
+  }
+  [role='tab'][aria-selected='true'] {
+    background: var(--cuttle-accent);
+    border-color: var(--cuttle-accent);
+    color: var(--cuttle-accent-contrast);
+  }
+</style>

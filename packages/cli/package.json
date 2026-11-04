@@ -1,0 +1,26 @@
+{
+  "name": "@cuttle/cli",
+  "version": "0.0.0",
+  "description": "Command line tool for Cuttle UI",
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist"],
+  "bin": { "cuttle": "./dist/index.js" },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean",
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "dependencies": { "@cuttle/styles": "workspace:*" },
+  "devDependencies": {
+    "@cuttle/eslint-config": "workspace:*",
+    "@cuttle/tsconfig": "workspace:*",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.14.0",
+    "tsup": "^9.0.0",
+    "typescript": "~5.9.3",
+    "vitest": "^5.1.0"
+  },
+  "publishConfig": { "access": "public" }
+}

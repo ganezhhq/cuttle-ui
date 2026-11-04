@@ -1,0 +1,26 @@
+{
+  "name": "@cuttle/ssr-check",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@cuttle/core": "workspace:*",
+    "@cuttle/icons": "workspace:*",
+    "@cuttle/react": "workspace:*",
+    "@cuttle/styles": "workspace:*",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@cuttle/tsconfig": "workspace:*",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "~5.9.3"
+  }
+}

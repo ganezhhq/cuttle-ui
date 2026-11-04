@@ -1,0 +1,36 @@
+{
+  "name": "@cuttle/icons",
+  "version": "0.0.0",
+  "description": "SVG icons for Cuttle UI, as strings and React components",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./react": { "types": "./dist/react.d.ts", "import": "./dist/react.js" }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/react.tsx --format esm --dts --clean --external react",
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "peerDependencies": { "react": ">=19" },
+  "peerDependenciesMeta": { "react": { "optional": true } },
+  "devDependencies": {
+    "@cuttle/eslint-config": "workspace:*",
+    "@cuttle/tsconfig": "workspace:*",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.14.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^9.0.0",
+    "typescript": "~5.9.3",
+    "vitest": "^5.1.0"
+  },
+  "publishConfig": { "access": "public" }
+}

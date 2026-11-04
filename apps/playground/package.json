@@ -1,0 +1,35 @@
+{
+  "name": "@cuttle/playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@cuttle/core": "workspace:*",
+    "@cuttle/icons": "workspace:*",
+    "@cuttle/react": "workspace:*",
+    "@cuttle/styles": "workspace:*",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@cuttle/eslint-config": "workspace:*",
+    "@cuttle/tsconfig": "workspace:*",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "axe-core": "^4.14.0",
+    "eslint": "^10.14.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.5"
+  }
+}

@@ -1,0 +1,12 @@
+name: New component proposal
+description: Propose a new component
+labels: [new-component]
+body:
+  - type: input
+    attributes: { label: Component name }
+    validations: { required: true }
+  - type: input
+    attributes: { label: WAI-ARIA pattern link }
+  - type: textarea
+    attributes: { label: Use cases and anatomy }
+    validations: { required: true }

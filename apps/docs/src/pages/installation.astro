@@ -1,0 +1,23 @@
+---
+import FrameworkTabs from '../components/FrameworkTabs.astro';
+import Docs from '../layouts/Docs.astro';
+
+const samples = {
+  React: `pnpm add @cuttle/react @cuttle/styles
+
+// In your app entry
+import '@cuttle/styles';`,
+  CLI: `npx @cuttle/cli init
+
+# Detects your framework, writes cuttle.json and copies tokens.css`,
+};
+---
+
+<Docs title="Installation">
+  <p>
+    Packages are not published to npm yet. These are the commands that will work from the first
+    public release.
+  </p>
+  <FrameworkTabs samples={samples} />
+  <p>Vue, Angular, Svelte and Web Components join in later phases.</p>
+</Docs>

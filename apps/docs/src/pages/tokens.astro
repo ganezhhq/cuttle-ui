@@ -1,0 +1,30 @@
+---
+import tokensCss from '@cuttle/styles/tokens.css?raw';
+import Docs from '../layouts/Docs.astro';
+
+// Reads the source file, so this table cannot drift from the real light-mode values.
+const rootBlock = tokensCss.slice(tokensCss.indexOf(':root {'), tokensCss.indexOf('@media'));
+const tokens = [...rootBlock.matchAll(/(--cuttle-[\w-]+):\s*([^;]+);/g)].map((match) => ({
+  name: match[1],
+  value: match[2],
+}));
+---
+
+<Docs title="Tokens">
+  <p>These are the default light values. Dark mode overrides the color and elevation tokens.</p>
+  <table>
+    <thead>
+      <tr><th scope="col">Token</th><th scope="col">Light value</th></tr>
+    </thead>
+    <tbody>
+      {
+        tokens.map((token) => (
+          <tr>
+            <td><code>{token.name}</code></td>
+            <td><code>{token.value}</code></td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</Docs>
