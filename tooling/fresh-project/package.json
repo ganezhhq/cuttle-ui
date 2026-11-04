@@ -1,0 +1,13 @@
+{
+  "name": "@cuttle-ui/fresh-project",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tries Cuttle the way a user would: packed packages in new Vite and Next.js apps",
+  "scripts": {
+    "check": "node run.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}

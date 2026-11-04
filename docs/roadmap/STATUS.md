@@ -41,6 +41,7 @@ Run `pnpm build` before starting an app, because the apps use the built output o
 | Install the browser for end-to-end tests (once) | `pnpm --filter @cuttle-ui/playground exec playwright install chromium` |
 | Run end-to-end tests | `pnpm --filter @cuttle-ui/playground test:e2e` |
 | Run the docs site tests | `pnpm --filter @cuttle-ui/docs test:e2e` |
+| Try packed packages in new apps | `pnpm --filter @cuttle-ui/fresh-project check` |
 
 Open the playground and docs site through the URLs that the dev servers print. The docs site is served from `/cuttle-ui/`. Opening `apps/playground/index.html` directly shows a blank page, because the page needs Vite to compile it.
 
@@ -64,6 +65,7 @@ From the CI and Docs runs on the latest commit on `main`:
 | Build, including the docs site and Next.js SSR check | Passed |
 | End-to-end tests (`test:e2e`), including screenshot comparison | Passed |
 | Docs site tests, including accessibility on every page | Passed |
+| Fresh project check, in new Vite and Next.js apps | Passed |
 | Docs site | [Deployed to GitHub Pages](https://ganezhhq.github.io/cuttle-ui/), all four pages load |
 | Release workflow | Paused, so it did not run. Its last run failed on `9bd1fc2`, and nothing was published |
 

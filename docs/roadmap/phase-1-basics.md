@@ -32,8 +32,7 @@ Differences from the checklist and table:
 - Select takes its options as a list, rather than as child components.
 - The CLI runs as `npx @cuttle-ui/cli`, because the unscoped `cuttle` package on npm belongs to someone else.
 - Components without a keyboard interaction, such as Card and Stack, have no keyboard table on their docs pages.
-- The guide's package steps were followed by hand in new Vite and Next.js apps, using packed packages. They have not been tried from npm, because nothing is published yet.
-- The fresh-project check was done by hand, using packed packages in new Vite and Next.js apps. CI does not run it. CI only covers `cuttle add` and `update` through the CLI's own tests.
+- The fresh-project check in `tooling/fresh-project` runs in CI. It uses packed packages in new Vite and Next.js apps, and reads the guide's code samples from its page. Nothing has been tried from npm yet, because nothing is published.
 - The `region` axe rule is turned off while an overlay is open, because floating layers sit outside the page landmarks by design.
 
 ## 2. Components
