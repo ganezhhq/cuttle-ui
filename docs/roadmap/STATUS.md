@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, at the Phase 0 scaffold commit `c94287a`.
+Last updated: 2026-11-04, after commit `5e9afeb`, which fixed the end-to-end test.
 
 **Start here when continuing on a new machine.** Phase 0 is mostly built, but it is not finished. Do not start Phase 1 until the [Phase 0 exit criteria](phase-0-foundation.md#exit-criteria) are met.
 
@@ -54,14 +54,14 @@ Set your Git name and email on the new machine before committing. This repositor
 
 ## Current state
 
-From [CI run 41823985762](https://github.com/ganezhhq/cuttle-ui/actions/runs/41823985762):
+From [CI run 41842420616](https://github.com/ganezhhq/cuttle-ui/actions/runs/41842420616) and [Release run 41842420667](https://github.com/ganezhhq/cuttle-ui/actions/runs/41842420667), both on commit `5e9afeb`:
 
 | Check | Result |
 |---|---|
 | Install, lint, typecheck | Passed |
 | Unit tests (`pnpm test`) | Passed |
 | Build, including the docs site and Next.js SSR check | Passed |
-| End-to-end tests (`test:e2e`) | **1 failed**, 5 passed |
+| End-to-end tests (`test:e2e`) | Passed |
 | Release workflow | **Failed**, nothing was published |
 
 Not checked yet:
@@ -73,13 +73,12 @@ Not checked yet:
 
 ## Next steps, in order
 
-1. **Confirm the end-to-end fix on CI.** `apps/playground/tests/tokens.spec.ts` (line 49) now accepts both `0ms` and `0s`, and all 6 end-to-end tests pass locally on Windows. The results above are from before this fix, so check the next CI run, which should turn green.
-2. **Choose the npm scope (decision needed).** See the blocker below.
-3. **Stop the Release workflow failing on every push.** It tries to publish whenever no changesets are pending, and currently fails with a 404. Rename the packages and add the `NPM_TOKEN` repository secret, or disable the workflow until then. Once a token is added, any push to `main` with no pending changesets can publish version `0.0.0`, so set real versions first.
-4. **Prove the release pipeline** by publishing a test package to npm.
-5. **Deploy the docs site**, for example to Vercel.
-6. **Open the playground and docs site** and check them by eye in light and dark mode.
-7. **Finish the smaller items:** enforce commitlint with a commit hook or CI step, create Linux snapshot baselines, and turn on GitHub Discussions and the roadmap board.
+1. **Choose the npm scope (decision needed).** See the blocker below.
+2. **Stop the Release workflow failing on every push.** It tries to publish whenever no changesets are pending, and currently fails with a 404. Rename the packages and add the `NPM_TOKEN` repository secret, or disable the workflow until then. Once a token is added, any push to `main` with no pending changesets can publish version `0.0.0`, so set real versions first.
+3. **Prove the release pipeline** by publishing a test package to npm.
+4. **Deploy the docs site**, for example to Vercel.
+5. **Open the playground and docs site** and check them by eye in light and dark mode.
+6. **Finish the smaller items:** enforce commitlint with a commit hook or CI step, create Linux snapshot baselines, and turn on GitHub Discussions and the roadmap board.
 
 ## Blocker: npm names are taken
 

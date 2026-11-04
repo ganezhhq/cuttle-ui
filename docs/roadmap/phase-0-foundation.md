@@ -96,7 +96,7 @@ Framework-free TypeScript building blocks every component uses:
 ## 8. CI/CD
 
 - [x] GitHub Actions: install, lint, typecheck, test, build (Turborepo cache)
-- [ ] Playwright set up for visual snapshots (Playwright runs, but one test fails and snapshot baselines do not exist yet)
+- [ ] Playwright set up for visual snapshots (Playwright runs and its tests pass, but snapshot baselines do not exist yet)
 - [x] axe-core test helper
 - [ ] Changesets release workflow (npm publish on merge to `main`): written, currently fails
 - [ ] Bundle size reporting on PRs: written, has never run
@@ -105,7 +105,7 @@ Framework-free TypeScript building blocks every component uses:
 
 ## Exit criteria
 
-- [x] `pnpm build` and `pnpm test` pass on CI (the separate end-to-end step still fails)
+- [x] `pnpm build` and `pnpm test` pass on CI, and so does the separate end-to-end step
 - [x] Tokens render correctly in light and dark mode in the playground (token values checked by end-to-end tests, not yet checked by eye)
 - [x] All core utilities have tests
 - [ ] Docs site deploys (e.g. Vercel) with Installation + Theming pages
