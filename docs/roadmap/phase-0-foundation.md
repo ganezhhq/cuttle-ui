@@ -45,7 +45,7 @@ cuttle-ui/
 └── pnpm-workspace.yaml
 ```
 
-## 2. `@cuttle/styles`
+## 2. `@cuttle-ui/styles`
 
 - [x] `tokens.css` — color, radius, spacing, type, elevation, motion (light + dark)
 - [x] `reset.css` — minimal CSS reset
@@ -54,7 +54,7 @@ cuttle-ui/
 - [x] Styling convention: components styled via `[data-cuttle="name"]` and `data-*` state attributes
 - [x] Decide focus ring + shimmer-focus recipe (shared utility class / mixin): `.cuttle-focus` in `focus.css`
 
-## 3. `@cuttle/core` utilities
+## 3. `@cuttle-ui/core` utilities
 
 Framework-free TypeScript building blocks every component uses:
 
@@ -69,21 +69,21 @@ Framework-free TypeScript building blocks every component uses:
 - [x] `mergeProps` + event composition
 - [x] Unit tests for each (Vitest)
 
-## 4. `@cuttle/react` adapter base
+## 4. `@cuttle-ui/react` adapter base
 
 - [x] `useMachine` hook to bind a core machine to React state
 - [x] `asChild` / Slot support
 - [x] `mergeRefs`, polymorphic typing helpers
 - [x] SSR check in a Next.js app router playground: `apps/ssr-check` builds on CI (hydration not yet checked in a browser)
 
-## 5. `@cuttle/icons`
+## 5. `@cuttle-ui/icons`
 
 - [x] Small initial SVG set (chevrons, close, check, search, plus, minus, calendar, info, warning)
 - [x] Build to framework-agnostic SVG strings + React components
 
-## 6. `@cuttle/cli` (skeleton)
+## 6. `@cuttle-ui/cli` (skeleton)
 
-- [x] `cuttle init` — detect framework, write `cuttle.json`, copy `tokens.css` (`npx cuttle` would run another package, see [the blocker](STATUS.md#blocker-npm-names-are-taken))
+- [x] `cuttle init` — detect framework, write `cuttle.json`, copy `tokens.css` (`npx cuttle` would run another package, see [the npm scope notes](STATUS.md#npm-scope))
 - [x] Command structure ready for `add` and `update` (implemented in Phase 1)
 
 ## 7. Docs & playground

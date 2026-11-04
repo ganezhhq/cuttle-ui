@@ -1,1 +1,1 @@
-export { default } from '@cuttle/eslint-config';
+export { default } from '@cuttle-ui/eslint-config';

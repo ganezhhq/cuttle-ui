@@ -8,7 +8,7 @@
 
 ## 1. Svelte adapter
 
-- [ ] `@cuttle/svelte` package (Svelte 5, runes)
+- [ ] `@cuttle-ui/svelte` package (Svelte 5, runes)
 - [ ] Binding core machines to runes-based state
 - [ ] Snippet-based parts, `bind:` support for form controls
 - [ ] SSR check with SvelteKit
@@ -50,7 +50,7 @@ Also include the remaining small utilities: **Box**, **Paper**, **Link**, **Icon
 
 ## 5. Release
 
-- [ ] Publish `@cuttle/svelte` and updated packages at `0.4.0`
+- [ ] Publish `@cuttle-ui/svelte` and updated packages at `0.4.0`
 
 ---
 

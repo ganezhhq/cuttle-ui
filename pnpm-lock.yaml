@@ -187,7 +187,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@cuttle/styles':
+      '@cuttle-ui/styles':
         specifier: workspace:*
         version: link:../../packages/styles
       astro:
@@ -196,16 +196,16 @@ importers:
 
   apps/playground:
     dependencies:
-      '@cuttle/core':
+      '@cuttle-ui/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@cuttle/icons':
+      '@cuttle-ui/icons':
         specifier: workspace:*
         version: link:../../packages/icons
-      '@cuttle/react':
+      '@cuttle-ui/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@cuttle/styles':
+      '@cuttle-ui/styles':
         specifier: workspace:*
         version: link:../../packages/styles
       react:
@@ -215,10 +215,10 @@ importers:
         specifier: ^19.3.1
         version: 19.3.1(react@19.3.1)
     devDependencies:
-      '@cuttle/eslint-config':
+      '@cuttle-ui/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint-config
-      '@cuttle/tsconfig':
+      '@cuttle-ui/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
       '@playwright/test':
@@ -251,16 +251,16 @@ importers:
 
   apps/ssr-check:
     dependencies:
-      '@cuttle/core':
+      '@cuttle-ui/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@cuttle/icons':
+      '@cuttle-ui/icons':
         specifier: workspace:*
         version: link:../../packages/icons
-      '@cuttle/react':
+      '@cuttle-ui/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@cuttle/styles':
+      '@cuttle-ui/styles':
         specifier: workspace:*
         version: link:../../packages/styles
       next:
@@ -273,7 +273,7 @@ importers:
         specifier: ^19.3.1
         version: 19.3.1(react@19.3.1)
     devDependencies:
-      '@cuttle/tsconfig':
+      '@cuttle-ui/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
       '@types/node':
@@ -291,14 +291,14 @@ importers:
 
   packages/cli:
     dependencies:
-      '@cuttle/styles':
+      '@cuttle-ui/styles':
         specifier: workspace:*
         version: link:../styles
     devDependencies:
-      '@cuttle/eslint-config':
+      '@cuttle-ui/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint-config
-      '@cuttle/tsconfig':
+      '@cuttle-ui/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
       '@types/node':
@@ -323,10 +323,10 @@ importers:
         specifier: ^1.8.0
         version: 1.8.0
     devDependencies:
-      '@cuttle/eslint-config':
+      '@cuttle-ui/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint-config
-      '@cuttle/tsconfig':
+      '@cuttle-ui/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
       eslint:
@@ -347,10 +347,10 @@ importers:
 
   packages/icons:
     devDependencies:
-      '@cuttle/eslint-config':
+      '@cuttle-ui/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint-config
-      '@cuttle/tsconfig':
+      '@cuttle-ui/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
       '@types/react':
@@ -380,14 +380,14 @@ importers:
 
   packages/react:
     dependencies:
-      '@cuttle/core':
+      '@cuttle-ui/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
-      '@cuttle/eslint-config':
+      '@cuttle-ui/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint-config
-      '@cuttle/tsconfig':
+      '@cuttle-ui/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
       '@types/react':

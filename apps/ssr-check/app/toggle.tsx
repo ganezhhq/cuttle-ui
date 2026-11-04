@@ -1,8 +1,8 @@
 'use client';
 
 import { useId } from 'react';
-import { createId, createMachine } from '@cuttle/core';
-import { Slot, useMachine } from '@cuttle/react';
+import { createId, createMachine } from '@cuttle-ui/core';
+import { Slot, useMachine } from '@cuttle-ui/react';
 
 const createToggle = () =>
   createMachine<null, { type: 'TOGGLE' }, 'off' | 'on'>({

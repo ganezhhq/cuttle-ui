@@ -1,5 +1,5 @@
 {
-  "extends": "@cuttle/tsconfig/react.json",
+  "extends": "@cuttle-ui/tsconfig/react.json",
   "compilerOptions": {
     "jsx": "preserve",
     "allowJs": true,

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import '@cuttle/styles';
+import '@cuttle-ui/styles';
 
 export const metadata = { title: 'Cuttle SSR check' };
 

@@ -28,8 +28,8 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
-      - run: pnpm --filter @cuttle/playground exec playwright install --with-deps chromium
-      - run: pnpm --filter @cuttle/playground test:e2e
+      - run: pnpm --filter @cuttle-ui/playground exec playwright install --with-deps chromium
+      - run: pnpm --filter @cuttle-ui/playground test:e2e
 
   size:
     if: github.event_name == 'pull_request'

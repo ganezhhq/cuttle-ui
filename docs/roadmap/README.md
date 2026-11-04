@@ -20,7 +20,7 @@ This folder splits the Cuttle UI implementation plan into phases. Each phase has
 - **React first, then port.** New components ship in React, then every other active framework via the shared core.
 - **Every active framework catches up.** When a framework is added, all earlier components are ported to it in that phase.
 - **Quality bar applies to every component** (see below).
-- **One monorepo** (`cuttle-ui`), many npm packages (`@cuttle/core`, `@cuttle/styles`, `@cuttle/react`, `@cuttle/vue`, `@cuttle/angular`, `@cuttle/svelte`, `@cuttle/elements`, `@cuttle/cli`).
+- **One monorepo** (`cuttle-ui`), many npm packages (`@cuttle-ui/core`, `@cuttle-ui/styles`, `@cuttle-ui/react`, `@cuttle-ui/vue`, `@cuttle-ui/angular`, `@cuttle-ui/svelte`, `@cuttle-ui/elements`, `@cuttle-ui/cli`).
 
 ## Component "done" checklist
 
@@ -42,4 +42,4 @@ This folder splits the Cuttle UI implementation plan into phases. Each phase has
 - Neutral base, **one accent** (ink-violet `#4f46e5` light / `#818cf8` dark)
 - 1px borders, subtle shadows, generous spacing, Geist / Inter type
 - Signature details: **ink accent**, **shimmer focus**, **10px radius + pill chips**, **springy motion**, **tinted surfaces**
-- All values come from CSS variable tokens in `@cuttle/styles/tokens.css`
+- All values come from CSS variable tokens in `@cuttle-ui/styles/tokens.css`

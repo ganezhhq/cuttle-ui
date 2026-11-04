@@ -1,1 +1,1 @@
-{ "extends": "@cuttle/tsconfig/react.json", "include": ["src"] }
+{ "extends": "@cuttle-ui/tsconfig/react.json", "include": ["src"] }

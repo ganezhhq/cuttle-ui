@@ -3,7 +3,7 @@ import type { MouseEvent } from 'react';
 import { createRoot } from 'react-dom/client';
 import { renderToString } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
-import { createMachine } from '@cuttle/core';
+import { createMachine } from '@cuttle-ui/core';
 import { mergeRefs, Slot, useMachine } from './index';
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;

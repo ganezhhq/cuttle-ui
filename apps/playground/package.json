@@ -1,5 +1,5 @@
 {
-  "name": "@cuttle/playground",
+  "name": "@cuttle-ui/playground",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,16 +12,16 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@cuttle/core": "workspace:*",
-    "@cuttle/icons": "workspace:*",
-    "@cuttle/react": "workspace:*",
-    "@cuttle/styles": "workspace:*",
+    "@cuttle-ui/core": "workspace:*",
+    "@cuttle-ui/icons": "workspace:*",
+    "@cuttle-ui/react": "workspace:*",
+    "@cuttle-ui/styles": "workspace:*",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@cuttle/eslint-config": "workspace:*",
-    "@cuttle/tsconfig": "workspace:*",
+    "@cuttle-ui/eslint-config": "workspace:*",
+    "@cuttle-ui/tsconfig": "workspace:*",
     "@playwright/test": "^1.64.1",
     "@types/node": "^22.0.0",
     "@types/react": "^19.3.0",

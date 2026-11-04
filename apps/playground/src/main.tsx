@@ -1,8 +1,8 @@
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { iconNames } from '@cuttle/icons';
-import { Icon } from '@cuttle/icons/react';
-import '@cuttle/styles';
+import { iconNames } from '@cuttle-ui/icons';
+import { Icon } from '@cuttle-ui/icons/react';
+import '@cuttle-ui/styles';
 import './playground.css';
 
 type Theme = 'system' | 'light' | 'dark';

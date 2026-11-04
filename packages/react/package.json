@@ -1,5 +1,5 @@
 {
-  "name": "@cuttle/react",
+  "name": "@cuttle-ui/react",
   "version": "0.0.0",
   "description": "React adapter for Cuttle UI",
   "license": "MIT",
@@ -17,11 +17,11 @@
     "lint": "eslint .",
     "test": "vitest run"
   },
-  "dependencies": { "@cuttle/core": "workspace:*" },
+  "dependencies": { "@cuttle-ui/core": "workspace:*" },
   "peerDependencies": { "react": ">=19" },
   "devDependencies": {
-    "@cuttle/eslint-config": "workspace:*",
-    "@cuttle/tsconfig": "workspace:*",
+    "@cuttle-ui/eslint-config": "workspace:*",
+    "@cuttle-ui/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "eslint": "^10.14.0",

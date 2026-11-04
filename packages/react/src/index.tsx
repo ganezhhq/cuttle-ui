@@ -1,7 +1,7 @@
 import { Children, cloneElement, isValidElement, useState, useSyncExternalStore } from 'react';
 import type { ComponentPropsWithRef, ElementType, ReactElement, ReactNode, Ref } from 'react';
-import { mergeProps } from '@cuttle/core';
-import type { Machine, MachineEvent, Snapshot } from '@cuttle/core';
+import { mergeProps } from '@cuttle-ui/core';
+import type { Machine, MachineEvent, Snapshot } from '@cuttle-ui/core';
 
 /**
  * Binds a core machine to React. The factory runs once per component instance, and

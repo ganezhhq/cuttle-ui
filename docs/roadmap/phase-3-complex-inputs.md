@@ -8,7 +8,7 @@
 
 ## 1. Angular adapter
 
-- [ ] `@cuttle/angular` package (ng-packagr)
+- [ ] `@cuttle-ui/angular` package (ng-packagr)
 - [ ] Signals-based binding to core machines
 - [ ] Standalone components + directives (`cuttleButton`, `cuttleDialogTrigger`, …)
 - [ ] Reactive Forms and template-driven forms support (`ControlValueAccessor`) for all form controls
@@ -16,7 +16,7 @@
 - [ ] Dedicated Angular CI job
 - [ ] Port all Phase 1 + Phase 2 components
 
-## 2. Web Components (`@cuttle/elements`)
+## 2. Web Components (`@cuttle-ui/elements`)
 
 - [ ] Lit-based custom elements (`<cuttle-button>`, `<cuttle-dialog>`, …)
 - [ ] Form-associated custom elements (`ElementInternals`) for form controls
@@ -58,7 +58,7 @@
 
 ## 6. Release
 
-- [ ] Publish `@cuttle/angular`, `@cuttle/elements` and updated packages at `0.3.0`
+- [ ] Publish `@cuttle-ui/angular`, `@cuttle-ui/elements` and updated packages at `0.3.0`
 
 ---
 

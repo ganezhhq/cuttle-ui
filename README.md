@@ -8,13 +8,13 @@ Simple, catchy, accessible UI components for every framework.
 
 | Package | Purpose |
 |---|---|
-| `@cuttle/core` | Framework-free state machines and DOM utilities |
-| `@cuttle/styles` | CSS tokens, reset and shared recipes |
-| `@cuttle/icons` | SVG icons as strings and React components |
-| `@cuttle/react` | React adapter |
-| `@cuttle/cli` | `cuttle init` and, later, `add` and `update` |
+| `@cuttle-ui/core` | Framework-free state machines and DOM utilities |
+| `@cuttle-ui/styles` | CSS tokens, reset and shared recipes |
+| `@cuttle-ui/icons` | SVG icons as strings and React components |
+| `@cuttle-ui/react` | React adapter |
+| `@cuttle-ui/cli` | `cuttle init` and, later, `add` and `update` |
 
-Package names may change, because the `@cuttle` npm scope appears to be taken. See [the blocker](docs/roadmap/STATUS.md#blocker-npm-names-are-taken).
+Nothing is published under the `@cuttle-ui` scope yet. See [the npm scope notes](docs/roadmap/STATUS.md#npm-scope).
 
 ## Develop
 

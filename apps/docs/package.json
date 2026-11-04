@@ -1,5 +1,5 @@
 {
-  "name": "@cuttle/docs",
+  "name": "@cuttle-ui/docs",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@cuttle/styles": "workspace:*",
+    "@cuttle-ui/styles": "workspace:*",
     "astro": "^7.4.5"
   }
 }

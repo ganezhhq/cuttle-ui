@@ -42,7 +42,7 @@ Don't start the rest until both are fully "done" per the checklist.
 
 ## 4. CLI
 
-- [ ] `npx cuttle add <component>` — copies React adapter + CSS into the user's project, adds `@cuttle/core` as dependency
+- [ ] `npx cuttle add <component>` — copies React adapter + CSS into the user's project, adds `@cuttle-ui/core` as dependency
 - [ ] Component registry (JSON) describing files and dependencies for each component
 - [ ] `npx cuttle update <component>` — 3-way merge with conflict report (can be basic in this phase)
 
@@ -54,7 +54,7 @@ Don't start the rest until both are fully "done" per the checklist.
 
 ## 6. Release
 
-- [ ] Publish `@cuttle/core`, `@cuttle/styles`, `@cuttle/icons`, `@cuttle/react`, `@cuttle/cli` at `0.1.0`
+- [ ] Publish `@cuttle-ui/core`, `@cuttle-ui/styles`, `@cuttle-ui/icons`, `@cuttle-ui/react`, `@cuttle-ui/cli` at `0.1.0`
 - [ ] Launch post / README showcase with screenshots (light + dark)
 
 ---

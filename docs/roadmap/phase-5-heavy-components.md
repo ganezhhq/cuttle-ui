@@ -12,16 +12,16 @@
 
 | # | Component | Package | Notes |
 |---|---|---|---|
-| 1 | Table | `@cuttle/<fw>` | simple semantic table, sticky header, striped/compact |
-| 2 | Data Grid | `@cuttle/grid` | see feature list below |
-| 3 | Tree View | `@cuttle/<fw>` | expand/collapse, multi-select, checkboxes, lazy loading, keyboard |
-| 4 | Charts | `@cuttle/charts` | line, bar, area, pie/donut, scatter; themed by tokens; accessible data tables |
-| 5 | Timeline | `@cuttle/<fw>` | vertical/horizontal, alternating |
-| 6 | Transfer List | `@cuttle/<fw>` | two lists, search, select all |
-| 7 | Masonry | `@cuttle/<fw>` | responsive columns |
-| 8 | Image List | `@cuttle/<fw>` | grid, quilted, with captions |
-| 9 | List | `@cuttle/<fw>` | items, icons, actions, nested |
-| 10 | Empty | `@cuttle/<fw>` | empty-state with icon, text, action |
+| 1 | Table | `@cuttle-ui/<fw>` | simple semantic table, sticky header, striped/compact |
+| 2 | Data Grid | `@cuttle-ui/grid` | see feature list below |
+| 3 | Tree View | `@cuttle-ui/<fw>` | expand/collapse, multi-select, checkboxes, lazy loading, keyboard |
+| 4 | Charts | `@cuttle-ui/charts` | line, bar, area, pie/donut, scatter; themed by tokens; accessible data tables |
+| 5 | Timeline | `@cuttle-ui/<fw>` | vertical/horizontal, alternating |
+| 6 | Transfer List | `@cuttle-ui/<fw>` | two lists, search, select all |
+| 7 | Masonry | `@cuttle-ui/<fw>` | responsive columns |
+| 8 | Image List | `@cuttle-ui/<fw>` | grid, quilted, with captions |
+| 9 | List | `@cuttle-ui/<fw>` | items, icons, actions, nested |
+| 10 | Empty | `@cuttle-ui/<fw>` | empty-state with icon, text, action |
 
 ### Data Grid features (all free / MIT)
 
@@ -37,7 +37,7 @@
 - [ ] Export to CSV
 - [ ] Server-side data mode
 - [ ] Full keyboard grid navigation (`role="grid"`)
-- [ ] Headless core in `@cuttle/core/grid`, adapters per framework
+- [ ] Headless core in `@cuttle-ui/core/grid`, adapters per framework
 
 ## 2. API stabilization
 
@@ -63,7 +63,7 @@
 
 ## 5. Release
 
-- [ ] Publish all packages at `1.0.0`, including `@cuttle/grid` and `@cuttle/charts`
+- [ ] Publish all packages at `1.0.0`, including `@cuttle-ui/grid` and `@cuttle-ui/charts`
 - [ ] Launch: blog post, GitHub release notes, demo video
 
 ---

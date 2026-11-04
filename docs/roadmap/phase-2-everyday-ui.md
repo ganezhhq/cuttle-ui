@@ -8,7 +8,7 @@
 
 ## 1. Vue adapter (do this first)
 
-- [ ] `@cuttle/vue` package setup (tsup / Vite library mode)
+- [ ] `@cuttle-ui/vue` package setup (tsup / Vite library mode)
 - [ ] `useMachine` composable binding core machines to Vue reactivity
 - [ ] `as-child` support via slot forwarding
 - [ ] SSR check in a Nuxt playground
@@ -57,14 +57,14 @@
 
 ## 6. Release
 
-- [ ] Publish `@cuttle/vue` and updated packages at `0.2.0`
+- [ ] Publish `@cuttle-ui/vue` and updated packages at `0.2.0`
 
 ---
 
 ## Exit criteria
 
 - [ ] 33 components pass the "done" checklist in **both React and Vue**
-- [ ] No React-specific code in `@cuttle/core`
+- [ ] No React-specific code in `@cuttle-ui/core`
 - [ ] Shared test specs pass on both adapters
 - [ ] Works in Nuxt with SSR
 - [ ] v0.2.0 published

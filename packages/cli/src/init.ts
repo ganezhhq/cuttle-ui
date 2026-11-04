@@ -59,7 +59,7 @@ export async function init(options: InitOptions): Promise<InitResult> {
   const destination = join(cwd, tokensPath);
   await mkdir(dirname(destination), { recursive: true });
   const require = createRequire(import.meta.url);
-  await copyFile(require.resolve('@cuttle/styles/tokens.css'), destination);
+  await copyFile(require.resolve('@cuttle-ui/styles/tokens.css'), destination);
 
   return { framework, configPath, tokensPath: destination };
 }

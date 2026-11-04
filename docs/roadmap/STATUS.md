@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after commit `5e9afeb`, which fixed the end-to-end test.
+Last updated: 2026-11-04, after the rename to the `@cuttle-ui` scope.
 
 **Start here when continuing on a new machine.** Phase 0 is mostly built, but it is not finished. Do not start Phase 1 until the [Phase 0 exit criteria](phase-0-foundation.md#exit-criteria) are met.
 
@@ -36,10 +36,10 @@ Run `pnpm build` before starting an app, because the apps use the built output o
 
 | Task | Command |
 |---|---|
-| Open the playground | `pnpm --filter @cuttle/playground dev` |
-| Open the docs site | `pnpm --filter @cuttle/docs dev` |
-| Install the browser for end-to-end tests (once) | `pnpm --filter @cuttle/playground exec playwright install chromium` |
-| Run end-to-end tests | `pnpm --filter @cuttle/playground test:e2e` |
+| Open the playground | `pnpm --filter @cuttle-ui/playground dev` |
+| Open the docs site | `pnpm --filter @cuttle-ui/docs dev` |
+| Install the browser for end-to-end tests (once) | `pnpm --filter @cuttle-ui/playground exec playwright install chromium` |
+| Run end-to-end tests | `pnpm --filter @cuttle-ui/playground test:e2e` |
 
 Open the playground through the URL that the dev server prints. Opening `apps/playground/index.html` directly shows a blank page, because the page needs Vite to compile it.
 
@@ -73,18 +73,18 @@ Not checked yet:
 
 ## Next steps, in order
 
-1. **Choose the npm scope (decision needed).** See the blocker below.
-2. **Turn automatic publishing back on.** The Release workflow is paused and only runs manually, because it tried to publish on every push and failed with a 404. Rename the packages, set real versions and add the `NPM_TOKEN` repository secret, then restore the `push` trigger in `.github/workflows/release.yml`. Set real versions first, because with a token and no pending changesets, any run can publish version `0.0.0`. This applies to manual runs too. Then update the Release note in `CLAUDE.md` and `CONTRIBUTING.md` if needed.
+1. **Create the `@cuttle-ui` organisation on npm (owner action).** See [npm scope](#npm-scope).
+2. **Turn automatic publishing back on.** The Release workflow is paused and only runs manually, because it tried to publish on every push and failed with a 404. Set real versions and add the `NPM_TOKEN` repository secret, then restore the `push` trigger in `.github/workflows/release.yml`. Set real versions first, because with a token and no pending changesets, any run can publish version `0.0.0`. This applies to manual runs too. Then update the Release note in `CLAUDE.md` and `CONTRIBUTING.md` if needed.
 3. **Prove the release pipeline** by publishing a test package to npm.
 4. **Deploy the docs site**, for example to Vercel.
 5. **Open the playground and docs site** and check them by eye in light and dark mode.
 6. **Finish the smaller items:** enforce commitlint with a commit hook or CI step, create Linux snapshot baselines, and turn on GitHub Discussions and the roadmap board.
 
-## Blocker: npm names are taken
+## npm scope
 
-- `@cuttle/core` already exists on npm at version 1.0.6. It was not published by this project, so the `@cuttle` scope probably belongs to someone else. Check its owner on npmjs.com.
-- Unless you control that scope, the packages need a new scope, such as one you own. Renaming affects every `package.json`, the imports, the lockfile and these docs, so do it before Phase 1.
-- The unscoped `cuttle` package also exists, at version 0.8.0. `npx cuttle init` would run that package, not ours. The docs use `npx @cuttle/cli init` for now, and that command must change with the scope.
+- The packages use the `@cuttle-ui` scope. `@cuttle/core` on npm belongs to another maintainer, so the original `@cuttle` scope could not be used.
+- The `@cuttle-ui` npm organisation must be created by the owner before anything can be published. Its availability has not been confirmed.
+- The unscoped `cuttle` package also exists, at version 0.8.0. `npx cuttle init` would run that package, not ours. The docs use `npx @cuttle-ui/cli init`.
 
 ## Differences from the original plan
 

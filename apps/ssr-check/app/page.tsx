@@ -1,4 +1,4 @@
-import { CheckIcon } from '@cuttle/icons/react';
+import { CheckIcon } from '@cuttle-ui/icons/react';
 import { Toggle } from './toggle';
 
 /** Renders the adapter on the server. `next build` fails if it touches browser globals. */

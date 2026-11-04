@@ -1,5 +1,5 @@
 {
-  "name": "@cuttle/icons",
+  "name": "@cuttle-ui/icons",
   "version": "0.0.0",
   "description": "SVG icons for Cuttle UI, as strings and React components",
   "license": "MIT",
@@ -21,8 +21,8 @@
   "peerDependencies": { "react": ">=19" },
   "peerDependenciesMeta": { "react": { "optional": true } },
   "devDependencies": {
-    "@cuttle/eslint-config": "workspace:*",
-    "@cuttle/tsconfig": "workspace:*",
+    "@cuttle-ui/eslint-config": "workspace:*",
+    "@cuttle-ui/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "eslint": "^10.14.0",
