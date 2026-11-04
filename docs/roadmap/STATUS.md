@@ -73,7 +73,7 @@ Not checked yet:
 
 ## Next steps, in order
 
-1. **Fix the failing end-to-end test.** In `apps/playground/tests/tokens.spec.ts` (line 49), the test expects `0ms` but receives `0s`. Both mean the same thing, so the test should accept either, for example `toMatch(/^0m?s$/)`. This should turn CI green.
+1. **Confirm the end-to-end fix on CI.** `apps/playground/tests/tokens.spec.ts` (line 49) now accepts both `0ms` and `0s`, and all 6 end-to-end tests pass locally on Windows. The results above are from before this fix, so check the next CI run, which should turn green.
 2. **Choose the npm scope (decision needed).** See the blocker below.
 3. **Stop the Release workflow failing on every push.** It tries to publish whenever no changesets are pending, and currently fails with a 404. Rename the packages and add the `NPM_TOKEN` repository secret, or disable the workflow until then. Once a token is added, any push to `main` with no pending changesets can publish version `0.0.0`, so set real versions first.
 4. **Prove the release pipeline** by publishing a test package to npm.

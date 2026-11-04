@@ -46,7 +46,7 @@ test.describe('reduced motion', () => {
 
   test('zeroes motion tokens', async ({ page }) => {
     await page.goto('/');
-    expect(await token(page, '--cuttle-duration')).toBe('0ms');
+    expect(await token(page, '--cuttle-duration')).toMatch(/^0m?s$/);
   });
 });
 
