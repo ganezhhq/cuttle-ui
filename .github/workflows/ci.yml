@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          check-latest: true # Astro needs a recent 22.x, and runner caches can lag behind
           cache: pnpm
       - uses: actions/cache@v4
         with:
@@ -52,6 +53,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          check-latest: true # Astro needs a recent 22.x, and runner caches can lag behind
           cache: pnpm
       - uses: preactjs/compressed-size-action@v2
         with:

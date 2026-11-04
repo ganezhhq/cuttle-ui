@@ -6,7 +6,7 @@ Last updated: 2026-11-04, after the first pass of all 15 Phase 1 components.
 
 ## Set up a new machine
 
-You need Git and Node 22 or newer.
+You need Git and Node 22.23.4 or newer, because Astro requires it.
 
 ```bash
 git clone https://github.com/ganezhhq/cuttle-ui.git

@@ -1,6 +1,6 @@
 # Contributing
 
-1. Install dependencies with `pnpm install` (Node 22 or newer, pnpm 12), then run `pnpm build`.
+1. Install dependencies with `pnpm install` (Node 22.23.4 or newer, pnpm 12), then run `pnpm build`.
 2. Commit directly to `main`. This project does not use feature branches.
 3. Before pushing, run `pnpm lint`, `pnpm typecheck`, `pnpm test` and `pnpm build`. Pushing to `main` starts the CI and Docs workflows, and Docs redeploys the docs site. The Release workflow is paused and only runs manually for now.
 4. Add a changeset with `pnpm changeset` if a published package changed.

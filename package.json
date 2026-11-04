@@ -3,7 +3,7 @@
   "private": true,
   "license": "MIT",
   "packageManager": "pnpm@12.16.1",
-  "engines": { "node": ">=22" },
+  "engines": { "node": ">=22.23.4" },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",

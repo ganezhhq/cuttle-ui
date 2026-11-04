@@ -20,7 +20,7 @@ Nothing is published under the `@cuttle-ui` scope yet. See [the npm scope notes]
 
 ## Develop
 
-Requires Node 22 or newer and pnpm 12.
+Requires Node 22.23.4 or newer and pnpm 12.
 
 ```bash
 pnpm install
