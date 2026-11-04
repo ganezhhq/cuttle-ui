@@ -31,6 +31,8 @@ Differences from the checklist and table:
 - Radio Group uses native radios, which provide the roving focus and arrow keys. This means `rovingFocus` from core is not used yet.
 - Select takes its options as a list, rather than as child components.
 - The CLI runs as `npx @cuttle-ui/cli`, because the unscoped `cuttle` package on npm belongs to someone else.
+- Components without a keyboard interaction, such as Card and Stack, have no keyboard table on their docs pages.
+- The guide's package steps were followed by hand in new Vite and Next.js apps, using packed packages. They have not been tried from npm, because nothing is published yet.
 - The fresh-project check was done by hand, using packed packages in new Vite and Next.js apps. CI does not run it. CI only covers `cuttle add` and `update` through the CLI's own tests.
 - The `region` axe rule is turned off while an overlay is open, because floating layers sit outside the page landmarks by design.
 
@@ -69,9 +71,9 @@ Differences from the checklist and table:
 
 ## 5. Docs
 
-- [ ] One page per component: live demo, install (package + CLI), anatomy, API table, keyboard table, a11y notes
-- [ ] "Getting started with React" guide (Vite + Next.js)
-- [ ] Theme playground v1: change accent color and radius, preview components, copy CSS variables
+- [x] One page per component: live demo, install (package + CLI), anatomy, API table, keyboard table, a11y notes
+- [x] "Getting started with React" guide (Vite + Next.js)
+- [x] Theme playground v1: change accent color and radius, preview components, copy CSS variables
 
 ## 6. Release
 
@@ -85,5 +87,5 @@ Differences from the checklist and table:
 - [ ] All 15 components pass the "done" checklist in React
 - [x] Works in Next.js (app router, SSR) and Vite
 - [x] `cuttle init` + `cuttle add` work in a fresh project
-- [ ] Docs live with all 15 component pages
+- [x] Docs live with all 15 component pages
 - [ ] v0.1.0 published to npm

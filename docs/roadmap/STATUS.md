@@ -1,6 +1,6 @@
 # Project status and handoff
 
-Last updated: 2026-11-04, after adding `cuttle add` and `cuttle update`.
+Last updated: 2026-11-04, after adding the React guide and the theme playground.
 
 **Start here when continuing on a new machine.** Phase 1 is in progress. The owner chose to start it before the last [Phase 0 exit criterion](phase-0-foundation.md#exit-criteria) was met, so the release pipeline is still unproven and nothing is published.
 
@@ -40,6 +40,7 @@ Run `pnpm build` before starting an app, because the apps use the built output o
 | Open the docs site | `pnpm --filter @cuttle-ui/docs dev` |
 | Install the browser for end-to-end tests (once) | `pnpm --filter @cuttle-ui/playground exec playwright install chromium` |
 | Run end-to-end tests | `pnpm --filter @cuttle-ui/playground test:e2e` |
+| Run the docs site tests | `pnpm --filter @cuttle-ui/docs test:e2e` |
 
 Open the playground and docs site through the URLs that the dev servers print. The docs site is served from `/cuttle-ui/`. Opening `apps/playground/index.html` directly shows a blank page, because the page needs Vite to compile it.
 
@@ -62,6 +63,7 @@ From the CI and Docs runs on the latest commit on `main`:
 | Unit tests (`pnpm test`) | Passed |
 | Build, including the docs site and Next.js SSR check | Passed |
 | End-to-end tests (`test:e2e`), including screenshot comparison | Passed |
+| Docs site tests, including accessibility on every page | Passed |
 | Docs site | [Deployed to GitHub Pages](https://ganezhhq.github.io/cuttle-ui/), all four pages load |
 | Release workflow | Paused, so it did not run. Its last run failed on `9bd1fc2`, and nothing was published |
 
@@ -75,7 +77,7 @@ Not checked yet:
 Phase 1:
 
 1. **Test the components with screen readers (owner action).** Use NVDA and VoiceOver. None of the 15 is fully done until this happens. See [Phase 1](phase-1-basics.md#component-status).
-2. **Write the "Getting started with React" guide and the theme playground.** The guide should say to set `font-family: var(--cuttle-font-sans)` on the page, because the components inherit their font.
+2. **Publish `0.1.0`, with a launch post or README showcase.** This needs the npm steps below first.
 
 Finish Phase 0:
 

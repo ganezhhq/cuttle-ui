@@ -40,6 +40,7 @@ jobs:
       - run: pnpm --filter @cuttle-ui/playground test:e2e
         env:
           VISUAL_SNAPSHOTS: '1'
+      - run: pnpm --filter @cuttle-ui/docs test:e2e
 
   size:
     if: github.event_name == 'pull_request'

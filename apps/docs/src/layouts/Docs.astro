@@ -9,7 +9,9 @@ const { title } = Astro.props;
 const links = [
   ['/', 'Introduction'],
   ['/installation', 'Installation'],
+  ['/getting-started', 'Getting started'],
   ['/theming', 'Theming'],
+  ['/theme-playground', 'Theme playground'],
   ['/tokens', 'Tokens'],
   ['/components/button', 'Button'],
   ['/components/dialog', 'Dialog'],
@@ -37,6 +39,7 @@ const path = Astro.url.pathname.slice(base.length).replace(/\/$/, '') || '/';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} | Cuttle UI</title>
+    <link rel="icon" href="data:," />
   </head>
   <body>
     <div class="shell">
@@ -59,6 +62,29 @@ const path = Astro.url.pathname.slice(base.length).replace(/\/$/, '') || '/';
         <slot />
       </main>
     </div>
+    <script>
+      // Wide tables scroll inside their own box, rather than making the whole page scroll.
+      document.querySelectorAll('main table').forEach((table) => {
+        const box = document.createElement('div');
+        box.className = 'table-scroll';
+        box.setAttribute('role', 'group');
+        box.setAttribute('aria-label', 'Table');
+        table.replaceWith(box);
+        box.append(table);
+      });
+
+      // Anything that scrolls sideways has to be reachable by keyboard.
+      const updateFocusable = () => {
+        document.querySelectorAll<HTMLElement>('main pre, .table-scroll').forEach((block) => {
+          if (block.scrollWidth > block.clientWidth) block.tabIndex = 0;
+          else if (!block.hasAttribute('aria-label') || block.matches('.table-scroll')) {
+            block.removeAttribute('tabindex');
+          }
+        });
+      };
+      updateFocusable();
+      addEventListener('resize', updateFocusable);
+    </script>
   </body>
 </html>
 
@@ -87,6 +113,14 @@ const path = Astro.url.pathname.slice(base.length).replace(/\/$/, '') || '/';
     margin-top: var(--cuttle-space-3);
     display: grid;
     gap: var(--cuttle-space-1);
+  }
+  /* Keeps the page content close to the top on a phone. */
+  @media (max-width: 720px) {
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--cuttle-space-1) var(--cuttle-space-3);
+    }
   }
   nav a {
     color: var(--cuttle-text-muted);
@@ -117,6 +151,9 @@ const path = Astro.url.pathname.slice(base.length).replace(/\/$/, '') || '/';
   table {
     width: 100%;
     border-collapse: collapse;
+  }
+  .table-scroll {
+    overflow-x: auto;
   }
   th,
   td {

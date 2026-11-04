@@ -10,4 +10,5 @@ export * from './portal';
 export * from './positioner';
 export * from './roving-focus';
 export * from './scroll-lock';
+export * from './theme';
 export * from './typeahead';

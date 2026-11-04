@@ -1,0 +1,123 @@
+---
+import Docs from '../layouts/Docs.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const viteMain = `import { createRoot } from 'react-dom/client';
+import '@cuttle-ui/styles';
+import './main.css';
+import { App } from './App';
+
+createRoot(document.getElementById('root')!).render(<App />);`;
+
+const fontCss = `body {
+  background: var(--cuttle-bg);
+  color: var(--cuttle-text);
+  font-family: var(--cuttle-font-sans);
+}`;
+
+const app = `import { Button, Dialog, DialogClose, DialogContent, DialogTitle, DialogTrigger } from '@cuttle-ui/react';
+
+export function App() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>Open</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogTitle>Hello</DialogTitle>
+        <DialogClose asChild>
+          <Button variant="outline">Close</Button>
+        </DialogClose>
+      </DialogContent>
+    </Dialog>
+  );
+}`;
+
+const nextLayout = `import type { ReactNode } from 'react';
+import '@cuttle-ui/styles';
+import './globals.css';
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}`;
+
+const nextPage = `import { Button, Heading } from '@cuttle-ui/react';
+
+// This is a server component. No 'use client' is needed to use Cuttle here.
+export default function Page() {
+  return (
+    <main>
+      <Heading level={1}>Hello</Heading>
+      <Button>Save</Button>
+    </main>
+  );
+}`;
+
+const cliEntry = `// Vite: in src/main.tsx. Next.js: in app/layout.tsx.
+import './components/cuttle/cuttle.css';
+
+// Anywhere you use a component:
+import { Button } from './components/cuttle';`;
+---
+
+<Docs title="Getting started with React">
+  <p>
+    Use Cuttle in a Vite or Next.js app. You need React 19 or newer.
+    <strong>Packages are not published to npm yet</strong>, so the install commands on this page do
+    not work yet.
+  </p>
+
+  <h2>Choose how to install</h2>
+  <ul>
+    <li><strong>The package</strong> is simplest, and you get updates from your package manager.</li>
+    <li><strong>The CLI</strong> copies the source into your project, so you can change anything.</li>
+  </ul>
+
+  <h2>Vite, with the package</h2>
+  <pre><code>pnpm add @cuttle-ui/react @cuttle-ui/styles</code></pre>
+  <p>Import the styles once, in <code>src/main.tsx</code>:</p>
+  <pre><code>{viteMain}</code></pre>
+  <p>Components inherit the page font and color, so set them in <code>src/main.css</code>:</p>
+  <pre><code>{fontCss}</code></pre>
+  <p>Then use components in <code>src/App.tsx</code>:</p>
+  <pre><code>{app}</code></pre>
+
+  <h2>Next.js, with the package</h2>
+  <p>These steps are for the app router.</p>
+  <pre><code>pnpm add @cuttle-ui/react @cuttle-ui/styles</code></pre>
+  <p>
+    Import the styles once, in <code>app/layout.tsx</code>. Put the same page rules in
+    <code>app/globals.css</code>:
+  </p>
+  <pre><code>{nextLayout}</code></pre>
+  <p>Cuttle components work in server components, as in <code>app/page.tsx</code> here:</p>
+  <pre><code>{nextPage}</code></pre>
+  <p>
+    Passing a function as a prop, such as <code>onClick</code>, still needs a client component, as
+    it does for any React component.
+  </p>
+
+  <h2>Either, with the CLI</h2>
+  <pre><code>{`npx @cuttle-ui/cli init
+npx @cuttle-ui/cli add button dialog
+pnpm install`}</code></pre>
+  <p>
+    The CLI copies components to <code>src/components/cuttle</code>. Use
+    <code>--dir components/cuttle</code> in a Next.js app without a <code>src</code> folder. Then
+    change the paths below to match your file:
+  </p>
+  <pre><code>{cliEntry}</code></pre>
+  <p>Commit the <code>.cuttle</code> folder, because <code>cuttle update</code> needs it.</p>
+
+  <h2>Next steps</h2>
+  <ul>
+    <li>Make it yours in the <a href={`${base}/theme-playground`}>theme playground</a>.</li>
+    <li>Read about <a href={`${base}/theming`}>theming</a> and <a href={`${base}/tokens`}>tokens</a>.</li>
+    <li>Browse the <a href={`${base}/components/button`}>components</a>.</li>
+  </ul>
+</Docs>

@@ -1,0 +1,13 @@
+---
+import { ThemePlayground } from '../components/ThemePlayground';
+import Docs from '../layouts/Docs.astro';
+---
+
+<Docs title="Theme playground">
+  <p>
+    Choose an accent color and a radius, see them on real components, then copy the CSS. Dark mode
+    colors are worked out from your accent.
+  </p>
+  <ThemePlayground client:only="react" />
+  <noscript><p>The theme playground needs JavaScript.</p></noscript>
+</Docs>
